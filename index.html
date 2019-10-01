@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+</head>
+<body>
+
+<noscript>
+Your browser does not support JavaScript!
+</noscript>
+
+<div class="btn-group">
+<button onclick="Inventory()" id="Inventory" >Inventory</button> 
+<button onclick="Shop()" id="Shop" >Shop</button> 
+</div>
+
+
+<p id= "DisCandies" ></p>
+<p id= "DisEatenCandies" ></p>
+<p id= "DisLolipops" ></p>
+<div class="btn-group">
+<button onclick="EatCandies()" id="EatCandiesButton" style="display:block;" >Eat all the Candies</button> 
+<button onclick="ThrowCandies()" id="ThrowCandiesButton" >Throw 10 candies on the ground</button> 
+</div>
+
+<script>
+//Declare "Candies" Variable
+var Candies = 100
+//Declare "Eaten_Candies Variable
+var Eaten_Candies = 0
+//Declare "Eaten_Candies Variable
+var Thrown_Candies = 0
+//Declare "Eaten_Candies Variable
+var Lolipops = 0
+</script>
+
+
+
+
+<script> 
+//run function "Add Candies" every 1000 milliseconds ( every second )
+var Timer = setInterval(AddCandies ,1000);
+//Declare Function for adding Candies
+function AddCandies(){ 
+//Create Candies Display Text 
+var CandyDisText1 = "You have # Candies!"
+//Overwrite "#" with number of candies thrown on the ground
+var CandyDisText2 = CandyDisText1.replace("#",Candies+1)
+//Update Candies Display
+document.getElementById("DisCandies").innerHTML = CandyDisText2
+//Add 1 to total Candies
+Candies++ 
+}
+</script>
+
+
+
+
+<script>
+//Declare Function for eating candies
+function EatCandies(){
+//Add Candies To Eaten Candies
+Eaten_Candies = Eaten_Candies + Candies 
+//Reset Candies
+Candies = 0
+//Original statement
+var CandysEatenDisText1 = "You have Eaten # Candies!"
+//Overwrite "#" with number of candies thrown on the ground
+var CandysEatenDisText2 = CandysEatenDisText1.replace("#",Eaten_Candies)
+//Update Eaten Candies Display
+document.getElementById("DisEatenCandies").innerHTML = CandysEatenDisText2
+//Create Candies Display Text 
+document.getElementById("DisCandies").innerHTML = "You have 0 Candies!"
+//End Function
+}
+//EndScript
+</script>
+
+
+
+
+<script>
+//Declare Function for eating candies
+function ThrowCandies(){
+//if statement for correct value of candies
+if (Candies > 9) {
+//Add Candies To Eaten Candies
+Thrown_Candies = Thrown_Candies + 10
+//Reset Candies
+Candies = Candies - 10
+//Original Text
+var CandysThrownDisText1 = "You have Thrown # Candies on the ground!"
+//Overite "#" with number of candies thrown on the ground
+var CandysThrownDisText2 = CandysThrownDisText1.replace("#",Thrown_Candies)
+//Update Eaten Candies Display
+document.getElementById("DisThrownCandies").innerHTML = CandysThrownDisText2
+
+//End Function And If statement
+} }
+//EndScript
+</script>
+
+
+
+<p id= "DisThrownCandies" ></p>
+
+
+
+
+<button onclick="Buy_Lolipop()" id="Buy_Lolipop_Button" >Buy a lolipop ( 50 Candies )</button> 
+<script>
+//Declare Function for eating candies
+function Buy_Lolipop(){
+//if statement for correct value of candies
+if (Candies > 49) {
+//Add Candies To Eaten Candies
+Lolipops = Lolipops + 1
+//Reset Candies
+Candies = Candies - 50
+//Original Text
+var LolipopsDisText1 = "You have # Lolipops!"
+//Overite "#" with number of candies thrown on the ground
+var LolipopsDisText2 = LolipopsDisText1.replace("#",Lolipops)
+//Update Eaten Candies Display
+document.getElementById("DisLolipops").innerHTML = LolipopsDisText2
+
+//End Function And If statement
+} }
+//EndScript
+</script>
+
+
+
+
+
+
+<script>
+//Menu System
+   function toggle_visibility(id,toggle) {
+      var e = document.getElementById(id);
+       if( toggle == 0 ) 
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+   }
+
+function Inventory() {
+//inventory
+toggle_visibility("EatCandiesButton",1)
+toggle_visibility("ThrowCandiesButton",1)
+toggle_visibility("Buy_Lolipop_Button",0)
+}
+
+function Shop() {
+//inventory
+toggle_visibility("EatCandiesButton",0)
+toggle_visibility("ThrowCandiesButton",0)
+toggle_visibility("Buy_Lolipop_Button",1)
+}
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
