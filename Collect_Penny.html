@@ -1,0 +1,11 @@
+<script>
+function Collect_Penny() {
+  //Create display text for Pennies
+  var Pennies_DisText1 = "You have # Pennies!"
+  //Replaces "#" with new amount of Pennies
+  var Pennies_DisText2 = Pennies_DisText1.replace("#",Pennies+1)
+  //Update displayed Pennies
+  document.getElementById("Dis_Pennies").innerHTML = Pennies_DisText2
+  //Adds one penny
+  Pennies++ }
+</script>
