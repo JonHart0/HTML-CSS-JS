@@ -2,26 +2,31 @@
 <html
   <head>
     <meta charset="utf-8">
+    <!--TITLE sets the information on the pages tab-->
     <title>Rock Paper Scissors PEPE</title>
+    <!--LINK is used to connect to an outsite file, a css file in this case -->
     <link rel="stylesheet" href="Style.css">
   </head>
   <body>
     <header>
+      <!--The first HEADER section inside the BODY used to name page -->
       <h1>Rock Paper Scissors</h1>
     </header>
-
+    <!--the first DIVISION under the header is defined for the scoreboard-->
     <div class="score-board">
       <div id=user-label class="badge">User</div>
       <div id=computer-label class="badge">Comp</div>
+      <!--SPAN is used to group inline elements, the space where the score will be displayed-->
       <span id="user-score">0</span>:<span id="computer-score">0</span>
     </div>
-
+    <!--DIVISION where the result of the current match is displayed -->
     <div class="result">
       <p>Paper Covers Rock, You win!</p>
     </div>
-
+    <!--Division where the three options(pictures) are displayed -->
     <div class="choices">
       <div class="choice" id="r">
+        <!--IMG imports the Rock.png from the folder Images in the same directory -->
         <img src="Images/Rock.png" alt="">
       </div>
       <div class="choice" id="p">
@@ -31,8 +36,9 @@
         <img src="Images/Scissors.png" alt="">
       </div>
     </div>
-
+    <!--PARAGRAPH giving instruction to player -->
     <p id="action-message">Make your move</p>
+    <!--SCRIPT imports the JAVASCRIPT file that will be the brains of this game -->
     <<script src="app.js" charset="utf-8"></script>
 
     </script>
