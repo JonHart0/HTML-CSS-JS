@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Asap&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #24272E
+}
+header{
+  background: white;
+  padding: 10px;
+}
+header > h1 {
+  color: #25272E;
+  text-align: center;
+  font-family: Asap, sans-serif;
+}
+
+.Text {
+  margin: 8px auto;
+  margin-left: 16px;
+  color: #ffffff;
+}
+
+.option-Buttons {
+  display: inline-block;
+  padding: 8px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  color: #fff;
+  background-color: #505050;
+  border: none;
+  border-radius: 15%;
+  box-shadow: 0 9px #999;
+}
+.option-Buttons:hover {background-color: #404040}
+.option-Buttons:active {
+  background-color: #303030;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#Inventory_Panel {
+  display: none;
+  height: auto;
+  width: 128px;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  text-align: center;
+  float: left;
+  color: #ffffff;
+  background-color: #555555;
+}
+#Store_Panel {
+  float: right;
+  display: none;
+  height: auto;
+  width: 128px;
+  margin-right: 650px;
+  margin-top: 32px;
+  color: #ffffff;
+  background-color: #555555;
+
+}
+
+.items{
+  display: none;
+}
+
+.Purchase-Buttons{
+  display: none;
+  padding: 4px 4px;
+  font-size: 8px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  color: #fff;
+  background-color: #505050;
+  border: none;
+  border-radius: 15%;
+
+}
+.Purchase-Buttons:hover {
+  opacity: 0.5;
+  background-color: #404040
+}
+.Purchase-Buttons:active {
+  opacity: 1;
+  background-color: #303030;
+}
+
+#test:hover {
+  background-color: yellow;
+}

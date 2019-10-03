@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html
+  <head>
+    <meta charset="utf-8">
+    <!--TITLE sets the information on the pages tab-->
+    <title>Jon's Pleasure Box</title>
+    <!--LINK is used to connect to an outsite file, a css file in this case -->
+    <link rel="stylesheet" href="Test_Style.css">
+  </head>
+  <body>
+
+    <header>
+      <h1>Pleasure Box</h1>
+    </header>
+
+
+    <div>
+      <button id=Pleasure_Box_Button  class="option-Buttons">Pleasure Box</button>
+      <button id=Inventory_Button    onclick="Inventory();" class="option-Buttons">Inventory</button>
+      <button id=Store_Button        onclick="Store();" class="option-Buttons">Store</button>
+    </div>
+
+<!--INVENTORY SECTION -->
+
+    <div id = Inventory_Panel>
+        <h3 id=test >Inventory:</h3>
+            <div id="Curreny_Panel">
+                <p id= "Dis_Pennies" class="Text"></p>
+                <p id= "Dis_Dollars" class="Text"></p>
+            </div>
+            <div class="Weapons">
+                <div id=Sword class="items">
+                  Sword of Pleasure
+                </div>
+          </div>
+    </div>
+
+<!--STORE SECTION-->
+    <div id = Store_Panel>
+        <h3>Store:</h3>
+            <button id=Purchase_Dollar_Button onclick="Purchase_Dollar()" class="Purchase-Buttons">Dollar (100 Pennies)</button>
+            <button id=Purchase_Sword_Button  onclick="Purchase_Sword()"  class="Purchase-Buttons">Sword (1 Dollar)</button>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="Pleasure_App.js" charset="utf-8"></script>
+  </body>
+</html>
