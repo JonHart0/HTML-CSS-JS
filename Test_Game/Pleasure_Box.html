@@ -23,23 +23,29 @@
 <!--INVENTORY SECTION -->
 
     <div id = Inventory_Panel>
-        <h3 id=test >Inventory:</h3>
+        <h3>Inventory:</h3>
             <div id="Curreny_Panel">
-                <p id= "Dis_Pennies" class="Text"></p>
-                <p id= "Dis_Dollars" class="Text"></p>
+                <p id= "Dis_Copper" class="Currency"></p>
+                <p id= "Dis_Silver" class="Currency"></p>
             </div>
-            <div class="Weapons">
-                <div id=Sword class="items">
-                  Sword of Pleasure
+            <div id=Weapons class="Weapons">
+              <p>Weapon: </p>
+                <div id=Copper_Sword class="Items">
+                  Copper Sword
                 </div>
-          </div>
+            </div>
+            <div id=Armor class="Armor">
+              <p>Weapon: </p>
+                <div id=Copper_Chest_Plate class="Items">
+                  Copper Chest Plate
+                </div>
+            </div>
     </div>
 
 <!--STORE SECTION-->
     <div id = Store_Panel>
         <h3>Store:</h3>
-            <button id=Purchase_Dollar_Button onclick="Purchase_Dollar()" class="Purchase-Buttons">Dollar (100 Pennies)</button>
-            <button id=Purchase_Sword_Button  onclick="Purchase_Sword()"  class="Purchase-Buttons">Sword (1 Dollar)</button>
+            <button id=Purchase_Copper_Sword_Button  onclick="Purchase_Sword()"  class="Purchase-Buttons">Sword (1 Silver)</button>
     </div>
 
 
@@ -49,6 +55,8 @@
 
 
 
-    <script src="Pleasure_App.js" charset="utf-8"></script>
+    <script src="js/Pleasure_App.js" charset="utf-8"></script>
+    <script src="js/Inventory.js" charset="utf-8"></script>
+    <script src="js/Store.js" charset="utf-8"></script>
   </body>
 </html>
