@@ -15,9 +15,11 @@
 
 
     <div>
-      <button id=Pleasure_Box_Button  class="option-Buttons">Pleasure Box</button>
-      <button id=Inventory_Button    onclick="Inventory();" class="option-Buttons">Inventory</button>
-      <button id=Store_Button        onclick="Store();" class="option-Buttons">Store</button>
+      <button id=Pleasure_Box_Button                          class="option-Buttons">Pleasure Box</button>
+      <button id=Inventory_Button     onclick="Inventory();"  class="option-Buttons">Inventory</button>
+      <button id=Store_Button         onclick="Store();"      class="option-Buttons">Store</button>
+      <button id=Give_Button          onclick="Give();"       class="option-Buttons">Give</button>
+      <button id=Take_Button          onclick="Take();"       class="option-Buttons">Take</button>
     </div>
 
 <!--INVENTORY SECTION -->
@@ -27,6 +29,7 @@
             <div id="Curreny_Panel">
                 <p id= "Dis_Copper" class="Currency"></p>
                 <p id= "Dis_Silver" class="Currency"></p>
+                <p id= "Dis_Gold" class="Currency"></p>
             </div>
             <div id=Weapons class="Weapons">
               <p>Weapon: </p>
@@ -45,7 +48,7 @@
 <!--STORE SECTION-->
     <div id = Store_Panel>
         <h3>Store:</h3>
-            <button id=Purchase_Copper_Sword_Button  onclick="Purchase_Sword()"  class="Purchase-Buttons">Sword (1 Silver)</button>
+            <button id=Purchase_Copper_Sword_Button  onclick="Purchase_Copper_Sword()"  class="Purchase-Buttons">Copper Sword (1 Silver)</button>
     </div>
 
 

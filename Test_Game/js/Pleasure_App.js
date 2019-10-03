@@ -25,3 +25,15 @@ function Store() {
     store_panel_press.style.display = "block";
   }
 }
+
+function Give() {
+  copper+= 100;
+  silver += 0;
+  gold += 0;
+}
+
+function Take() {
+  copper =0;
+  silver =0;
+  gold =0;
+}

@@ -1,22 +1,29 @@
-var copper = 99;
-var silver = 2;
-var copper_buffer = 0;
-var silver_buffer = 0;
+var copper  = 1;
+var silver  = 0;
+var gold  = 0;
+
+var copper_value = 1;
+var silver_value = 100;
+var gold_value = 10000;
+
+
+
+setInterval(function(){copper++;
+  var total_copper = copper + (silver * silver_value) + (gold * gold_value)
+  Dis_Copper.innerHTML  = `Copper: ${copper} (${total_copper})`;
+  Dis_Silver.innerHTML  = `Silver: ${silver}`;
+  Dis_Gold.innerHTML    = `Gold:   ${gold}`;},
+  1000);
+
 
 function Currency_Conversion() {
   if (copper >= silver_value) {
-    silver++
-    copper = copper - 100;
-  }
 
-  silver_buffer = silver;
-  copper_buffer = silver_value * silver + copper + 1;
-  
+    silver += Math.floor(copper/100);
+    copper -= 100 * Math.floor(copper/100);}
+  if ((copper + (silver * silver_value)) >= gold_value) {
+    gold += Math.floor(silver/100);
+    silver -= 100 * Math.floor(silver/100);}
 }
-setInterval(function(){Currency_Conversion()},100);
 
-setInterval(function(){copper++;
-  Dis_Copper.innerHTML  = `Copper: ${copper} (${copper_buffer})`;
-  Dis_Silver.innerHTML  = `Silver: ${silver} (${silver_buffer})`;
-  Dis_Gold.innerHTML    = "Gold: "   + gold;},
-  1000);
+setInterval(function(){Currency_Conversion()},1000);
