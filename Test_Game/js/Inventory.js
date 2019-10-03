@@ -1,14 +1,15 @@
-var copper = 1;
+var copper = 10;
 var silver = 1;
-var gold = 0;
+var gold = 1;
 
 var copper_value = 1;
 var silver_value = 100;
 var gold_value = 10000;
+
 var total_copper = 0;
 
 var weapon_array = [0,0,0];
-
+var armor_array = [0,0,0,0];
 
 setInterval(function() {
         copper++;
@@ -16,7 +17,8 @@ setInterval(function() {
         Dis_Copper.innerHTML = `Copper: ${copper} (${total_copper})`;
         Dis_Silver.innerHTML = `Silver: ${silver}`;
         Dis_Gold.innerHTML = `Gold:   ${gold}`;
-        test.innerHTML = weapon_array;
+        weapon_a.innerHTML = weapon_array;
+        //armor_a.innerHTML = armor_array;
     },1000);
 
 

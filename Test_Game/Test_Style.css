@@ -94,5 +94,12 @@ header > h1 {
 
 .Currency {
 
+}
 
+.array{
+  background-color: white;
+  margin-top: 640px;
+  height: auto;
+  width: 200px;
+  display: inline-block;
 }

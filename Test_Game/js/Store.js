@@ -1,8 +1,11 @@
 ////////////////////
 ////Store costs////
 //////////////////
-var copper_sword_cost = 105; //copper
-
+var copper_sword_cost = 10110;
+var copper_chest_cost
+var test1 = 1;
+var test2 = 1;
+var test3 = 1;
 // Declare html constants
 const purchase_copper_sword_press = document.getElementById("Purchase_Copper_Sword_Button");
 const copper_sword = document.getElementById("Copper_Sword");
@@ -35,13 +38,11 @@ function Purchase_Copper_Sword() {
 
 function Purchase(purchase_value,purchased_item) {
     var purchase_buffer = purchase_value;
-    while (purchase_buffer > 0) {
           gold -= Math.floor(purchase_buffer/10000);
-          purchase_buffer -= Math.floor(purchase_value/10000)*10000;
+          purchase_buffer -= Math.floor(purchase_buffer/10000)*10000;
           silver -= Math.floor(purchase_buffer/100);
-          purchase_buffer -= Math.floor(purchase_value/100)*100;
+          purchase_buffer -= Math.floor(purchase_buffer/100)*100;
           copper -= purchase_buffer;
-          purchase_buffer = 0;
-            purchased_item.style.display = "block";
-    }
+          purchased_item.style.display = "block";
+          armor_a.innerHTML = [gold,silver,copper,purchase_buffer];
 }
