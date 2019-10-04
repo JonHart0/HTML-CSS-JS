@@ -25,10 +25,9 @@ function Store() {
     }
 }
 
-function Give() {
-    copper += 100;
-    silver += 0;
-    gold += 0;
+function Beg() {
+    copper += 1;
+
 }
 
 function Take() {

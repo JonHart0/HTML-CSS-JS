@@ -15,10 +15,10 @@
 
 
     <div>
-      <button id=Pleasure_Box_Button                          class="option-Buttons">Pleasure Box</button>
+      <button id=Pleasure_Box_Button  onclick="Pleasure_Box()"                        class="option-Buttons">Pleasure Box</button>
       <button id=Inventory_Button     onclick="Inventory();"  class="option-Buttons">Inventory</button>
       <button id=Store_Button         onclick="Store();"      class="option-Buttons">Store</button>
-      <button id=Give_Button          onclick="Give();"       class="option-Buttons">Give</button>
+      <button id=Beg_Button           onclick="Beg();"        class="option-Buttons">Beg</button>
       <button id=Take_Button          onclick="Take();"       class="option-Buttons">Take</button>
     </div>
 
@@ -31,24 +31,34 @@
                 <p id= "Dis_Silver" class="Currency"></p>
                 <p id= "Dis_Gold" class="Currency"></p>
             </div>
-            <div id=Weapons class="Weapons">
+
+            <div id="Weapons" class="Weapons">
               <p>Weapon: </p>
-                <div id=Copper_Sword class="Items">
-                  Copper Sword
-                </div>
+                <select id="Equiped_Weapon">
+                  <option id="Empty_Handed" title="Fist to cuffs like a real man (+0 Dmg)"                    >None         </option>
+                  <option id="Stick_Sword"  title="Its a stick, What did you expect (+1 Dmg)"             class="Unlockable"  >Stick        </option>
+                  <option id="Wooden_Sword" title="Not quite a sword, but better than a stick (+3 Dmg)"   class="Unlockable"  >Wooden Sword </option>
+                  <option id="Copper_Sword" title="Babies first real weapon (+8 Dmg)"                     class="Unlockable"  >Copper Sword </option>
+                </select>
             </div>
+
             <div id=Armor class="Armor">
               <p>Armor: </p>
-                <div id=Copper_Chest class="Items">
-                  Copper Chest Plate
-                </div>
+              <select id="Equiped_Armor">
+                <option id="Bare_Chest"                       >None         </option>
+                <option id="Bark_Chest"   class="Unlockable"   >Bark Chest   </option>
+                <option id="Wooden_Chest" class="Unlockable"  >Wooden Chest </option>
+                <option id="Copper_Sword" class="Unlockable"  >Copper Chest </option>
+              </select>
             </div>
     </div>
 
 <!--STORE SECTION-->
     <div id = Store_Panel>
         <h3>Store:</h3>
-            <button id = Purchase_Copper_Sword_Button  onclick="Purchase_Copper_Sword()"  class="Items">Copper Sword (1 Silver)</button>
+            <button id = Purchase_Stick_Sword_Button  onclick="Purchase_Stick_Sword()"    class="store-items">Just A Stick (10 copper)</button>
+            <button id = Purchase_Wooden_Sword_Button  onclick="Purchase_Wooden_Sword()"  class="store-items">Wooden Sword (1 Silver)</button>
+            <button id = Purchase_Copper_Sword_Button  onclick="Purchase_Copper_Sword()"  class="store-items">Copper Sword (5 Silver)</button>
     </div>
     <div id=weapon_a class="array">
 

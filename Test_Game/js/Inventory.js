@@ -8,16 +8,16 @@ var gold_value = 10000;
 
 var total_copper = 0;
 
-var weapon_array = [0,0,0];
-var armor_array = [0,0,0,0];
+
 
 setInterval(function() {
         copper++;
         total_copper = copper + (silver * silver_value) + (gold * gold_value);
-        Dis_Copper.innerHTML = `Copper: ${copper} (${total_copper})`;
+        Dis_Copper.innerHTML = `Copper: ${copper}`;
         Dis_Silver.innerHTML = `Silver: ${silver}`;
         Dis_Gold.innerHTML = `Gold:   ${gold}`;
         weapon_a.innerHTML = weapon_array;
+
         //armor_a.innerHTML = armor_array;
     },1000);
 
@@ -35,3 +35,12 @@ function Currency_Conversion() {
 }
 
 setInterval(function() {Currency_Conversion()}, 1000);
+
+////////////////////////
+////Inventory Items////
+//////////////////////
+var weapon_array = [1,0,0,0];
+var armor_array = [1,0,0,0];
+
+const weapons = document.getElementById("Weapons");
+const armors = document.getElementById("Armors");
