@@ -137,51 +137,71 @@ function Purchase(purchase_value,purchased_item) {
 ////STORE ITEM DISPLAY CHECKER////
 /////////////////////////////////
 
+//Function checks the players total money and unlockes items as they
+//gain more money. If the player has enough money and doesnt own the items
+//the button turns green, red if not enough money, and black if already purchased
 function Currency_Check() {
-    if (total_copper >= stick_sword_cost) {
-        purchase_stick_sword_press.style.display = "block";
-        purchase_stick_sword_press.style.backgroundColor = '#006000';
-    } else {
-        purchase_stick_sword_press.style.backgroundColor = '#700000';
-    }
 
-    if (total_copper >= wooden_sword_cost) {
-        purchase_wooden_sword_press.style.display = "block";
-        purchase_wooden_sword_press.style.backgroundColor = '#006000';
-    } else {
-        purchase_wooden_sword_press.style.backgroundColor = '#700000';
-    }
+  //STICK SWORD
+  if (weapon_array[1] === 0) {
+      if (total_copper >= stick_sword_cost) {
+          purchase_stick_sword_press.style.display = "block";
+          purchase_stick_sword_press.style.backgroundColor = '#006000';
+    }else{purchase_stick_sword_press.style.backgroundColor = '#700000';
+         }
+  }else{purchase_stick_sword_press.style.backgroundColor = '#202020'
+      purchase_stick_sword_press.style.color = '#ffffff'}
 
-    if (total_copper >= copper_sword_cost) {
-        purchase_copper_sword_press.style.display = "block";
-        purchase_copper_sword_press.style.backgroundColor = '#006000';
-    } else {
-        purchase_copper_sword_press.style.backgroundColor = '#700000';
-    }
+  //WOODEN SWORD
+  if (weapon_array[2] === 0) {
+      if (total_copper >= wooden_sword_cost) {
+          purchase_wooden_sword_press.style.display = "block";
+          purchase_wooden_sword_press.style.backgroundColor = '#006000';
+    }else{purchase_wooden_sword_press.style.backgroundColor = '#700000';
+         }
+  }else{purchase_wooden_sword_press.style.backgroundColor = '#202020'
+        purchase_wooden_sword_press.style.color = '#ffffff'}
 
+//COPPER SWORD
+  if (weapon_array[3] === 0) {
+      if (total_copper >= copper_sword_cost) {
+          purchase_copper_sword_press.style.display = "block";
+          purchase_copper_sword_press.style.backgroundColor = '#006000';
+    }else{purchase_copper_sword_press.style.backgroundColor = '#700000';
+         }
+  }else{purchase_copper_sword_press.style.backgroundColor = '#202020'
+        purchase_copper_sword_press.style.color = '#ffffff'}
 
-    if (total_copper >= bark_chest_cost) {
-        purchase_bark_chest_press.style.display = "block";
-        purchase_bark_chest_press.style.backgroundColor = '#006000';
-    } else {
-        purchase_bark_chest_press.style.backgroundColor = '#700000';
-    }
+ //BARK CHEST
+ if (armor_array[1] === 0) {
+      if (total_copper >= bark_chest_cost) {
+          purchase_bark_chest_press.style.display = "block";
+          purchase_bark_chest_press.style.backgroundColor = '#006000';
+    }else{purchase_bark_chest_press.style.backgroundColor = '#700000';
+         }
+  }else{purchase_bark_chest_press.style.backgroundColor = '#202020'
+        purchase_bark_chest_press.style.color = '#ffffff'}
 
-
+//WOODEN CHEST
+  if (armor_array[2] === 0) {
     if (total_copper >= wooden_chest_cost) {
         purchase_wooden_chest_press.style.display = "block";
         purchase_wooden_chest_press.style.backgroundColor = '#006000';
-    } else {
-        purchase_wooden_chest_press.style.backgroundColor = '#700000';
-    }
+    }else{purchase_wooden_chest_press.style.backgroundColor = '#700000';
+         }
+  }else{purchase_wooden_chest_press.style.backgroundColor = '#202020'
+        purchase_wooden_chest_press.style.color = '#ffffff'}
 
-    if (total_copper >= copper_chest_cost) {
-        purchase_copper_chest_press.style.display = "block";
-        purchase_copper_chest_press.style.backgroundColor = '#006000';
-    } else {
-        purchase_copper_chest_press.style.backgroundColor = '#700000';
-    }
-    }
+//COPPER CHEST
+  if (armor_array[3] === 0) {
+      if (total_copper >= copper_chest_cost) {
+          purchase_copper_chest_press.style.display = "block";
+          purchase_copper_chest_press.style.backgroundColor = '#006000';
+    }else{purchase_copper_chest_press.style.backgroundColor = '#700000';
+         }
+  }else{purchase_copper_chest_press.style.backgroundColor = '#202020'
+          purchase_copper_chest_press.style.color = '#ffffff'}
+}
 
 
 
