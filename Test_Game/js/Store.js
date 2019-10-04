@@ -96,6 +96,44 @@ function Purchase_Spend_Currency(purchase_value,purchased_item) {
 
 
 
+purchase_stick_sword_button_press.title = Purchase_Button_Hover(stick_sword_cost);
+purchase_wooden_sword_button_press.title = Purchase_Button_Hover(wooden_sword_cost);
+purchase_copper_sword_button_press.title = Purchase_Button_Hover(copper_sword_cost);
+
+purchase_bark_chest_button_press.title = Purchase_Button_Hover(bark_chest_cost);
+purchase_wooden_chest_button_press.title = Purchase_Button_Hover(wooden_chest_cost);
+purchase_copper_chest_button_press.title = Purchase_Button_Hover(copper_chest_cost);
+  function Purchase_Button_Hover(Item_Cost) {
+  var cost_array = [0,0,0]
+  cost_array[0] = Math.floor(Item_Cost/10000);
+  Item_Cost -= Math.floor(Item_Cost/10000)*10000;
+  cost_array[1] = Math.floor(Item_Cost/100);
+  Item_Cost -= Math.floor(Item_Cost/100)*100;
+  cost_array[2] = Item_Cost;
+
+if (cost_array[0] == 0 && cost_array[1] == 0 & cost_array[2] > 0) {
+  cost_array[3] = `${cost_array[2]} Copper`
+}
+if (cost_array[0] == 0 && cost_array[1] > 0 & cost_array[2] == 0) {
+  cost_array[3] = `${cost_array[1]} Silver`
+}
+if (cost_array[0] == 0 && cost_array[1] > 0 & cost_array[2] > 0) {
+  cost_array[3] = `${cost_array[1]} Silver, ${cost_array[2]} Copper`
+}
+if (cost_array[0] > 0 && cost_array[1] == 0 & cost_array[2] == 0) {
+  cost_array[3] = `${cost_array[0]} Gold`
+}
+if (cost_array[0] > 0 && cost_array[1] == 0 & cost_array[2] > 0) {
+  cost_array[3] = `${cost_array[0]} Gold, ${cost_array[2]} Copper`
+}
+if (cost_array[0] >0 && cost_array[1] > 0 & cost_array[2] > 0) {
+  cost_array[3] = `${cost_array[0]} Gold, ${cost_array[1]} Silver, ${cost_array[2]} Copper`
+}
+
+  return cost_array[3];
+}
+
+
 ///////////////////////////////////
 ////STORE ITEM DISPLAY CHECKER////
 /////////////////////////////////
