@@ -13,18 +13,21 @@ var total_copper = 0;
 var weapon_array = [1,0,0,0];
 var armor_array = [1,0,0,0];
 
+////////////////////
+////Money Maker////
+//////////////////
 
+setInterval(function() {copper++;},1000);
+
+/////////////////////////
+////Currency Updater////
+///////////////////////
 
 setInterval(function() {
-        copper++;
         total_copper = copper + (silver * silver_value) + (gold * gold_value);
         Dis_Copper.innerHTML = `Copper: ${copper}`;
         Dis_Silver.innerHTML = `Silver: ${silver}`;
         Dis_Gold.innerHTML = `Gold:   ${gold}`;
-        //weapon_a.innerHTML = armor_array;
-        //current_weapon_image.src;
-
-        //armor_a.innerHTML = armor_array;
     },1000);
 
 
