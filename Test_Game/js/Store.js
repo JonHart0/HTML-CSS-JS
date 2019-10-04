@@ -6,8 +6,8 @@ var wooden_sword_cost  = 100;
 var copper_sword_cost  = 500;
 
 var bark_chest_cost    = 50;
-var wooden_chest_cost    = 200;
-var copper_chest_cost  = 1;
+var wooden_chest_cost  = 200;
+var copper_chest_cost  = 1000;
 
 
 // Declare html constants
