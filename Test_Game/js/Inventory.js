@@ -16,7 +16,8 @@ setInterval(function() {
         Dis_Copper.innerHTML = `Copper: ${copper}`;
         Dis_Silver.innerHTML = `Silver: ${silver}`;
         Dis_Gold.innerHTML = `Gold:   ${gold}`;
-        weapon_a.innerHTML = weapon_array;
+        weapon_a.innerHTML = armor_array;
+        //current_weapon_image.src;
 
         //armor_a.innerHTML = armor_array;
     },1000);
@@ -44,3 +45,11 @@ var armor_array = [1,0,0,0];
 
 const weapons = document.getElementById("Weapons");
 const armors = document.getElementById("Armors");
+const current_weapon_image = document.getElementById("Weapon_Image");
+const current_armor_image = document.getElementById("Armor_Image");
+
+
+
+function Switch_Image(From,To) {
+From.src = To.value;
+}

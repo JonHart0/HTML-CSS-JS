@@ -26,39 +26,46 @@
 
     <div id = Inventory_Panel>
         <h3>Inventory:</h3>
-            <div id="Curreny_Panel">
-                <p id= "Dis_Copper" class="Currency"></p>
-                <p id= "Dis_Silver" class="Currency"></p>
-                <p id= "Dis_Gold" class="Currency"></p>
+            <div id="Currency_Panel">
+                <p id= "Dis_Copper" class="Currency-copper"></p>
+                <p id= "Dis_Silver" class="Currency-silver"></p>
+                <p id= "Dis_Gold"   class="Currency-gold"></p>
             </div>
 
             <div id="Weapons" class="Weapons">
-              <p>Weapon: </p>
-                <select id="Equiped_Weapon">
-                  <option id="Empty_Handed" title="Fist to cuffs like a real man (+0 Dmg)"                    >None         </option>
-                  <option id="Stick_Sword"  title="Its a stick, What did you expect (+1 Dmg)"             class="Unlockable"  >Stick        </option>
-                  <option id="Wooden_Sword" title="Not quite a sword, but better than a stick (+3 Dmg)"   class="Unlockable"  >Wooden Sword </option>
-                  <option id="Copper_Sword" title="Babies first real weapon (+8 Dmg)"                     class="Unlockable"  >Copper Sword </option>
+
+              <p>Weapon: <img id="Weapon_Image" src="images/Empty_Handed.png"></p>
+                <select  id="Equiped_Weapon" onchange= Switch_Image(current_weapon_image,equiped_weapon)>
+                  <option id="Empty_Handed" value="images/Empty_Handed.png"  title="Fist to cuffs like a real man (+0 Dmg)"                selected            >Empty Handed         </option>
+                  <option id="Stick_Sword"  value="images/Stick_Sword.png"   title="Its a stick, What did you expect (+1 Dmg)"             class="Unlockable"  >Stick        </option>
+                  <option id="Wooden_Sword" value="images/Wooden_Sword.png"  title="Not quite a sword, but better than a stick (+3 Dmg)"   class="Unlockable"  >Wooden Sword </option>
+                  <option id="Copper_Sword" value="images/Copper_Sword.png"  title="Babies first real weapon (+8 Dmg)"                     class="Unlockable"  >Copper Sword </option>
                 </select>
             </div>
 
             <div id=Armor class="Armor">
-              <p>Armor: </p>
-              <select id="Equiped_Armor">
-                <option id="Bare_Chest"                       >None         </option>
-                <option id="Bark_Chest"   class="Unlockable"   >Bark Chest   </option>
-                <option id="Wooden_Chest" class="Unlockable"  >Wooden Chest </option>
-                <option id="Copper_Sword" class="Unlockable"  >Copper Chest </option>
+
+              <p>Armor: <img id="Armor_Image" src="images/Bare_Chest.png"></p>
+              <select id="Equiped_Armor" onchange= Switch_Image(current_armor_image,equiped_armor)>
+                <option id="Bare_Chest"   value="images/Bare_Chest.png"     selected            >Bare Chest   </option>
+                <option id="Bark_Chest"   value="images/Bark_Chest.png"     class="Unlockable"  >Bark Chest   </option>
+                <option id="Wooden_Chest" value="images/Wooden_Chest.png"   class="Unlockable"  >Wooden Chest </option>
+                <option id="Copper_Sword" value="images/Copper_Chest.png"   class="Unlockable"  >Copper Chest </option>
               </select>
             </div>
     </div>
 
 <!--STORE SECTION-->
+
     <div id = Store_Panel>
         <h3>Store:</h3>
-            <button id = Purchase_Stick_Sword_Button  onclick="Purchase_Stick_Sword()"    class="store-items">Just A Stick (10 copper)</button>
-            <button id = Purchase_Wooden_Sword_Button  onclick="Purchase_Wooden_Sword()"  class="store-items">Wooden Sword (1 Silver)</button>
-            <button id = Purchase_Copper_Sword_Button  onclick="Purchase_Copper_Sword()"  class="store-items">Copper Sword (5 Silver)</button>
+            <button id = Purchase_Stick_Sword_Button    onclick="Purchase_Stick_Sword()"    class="store-items">Just A Stick (10 copper)</button>
+            <button id = Purchase_Wooden_Sword_Button   onclick="Purchase_Wooden_Sword()"  class="store-items">Wooden Sword (1 Silver)</button>
+            <button id = Purchase_Copper_Sword_Button   onclick="Purchase_Copper_Sword()"  class="store-items">Copper Sword (5 Silver)</button>
+
+            <button id = Purchase_Bark_Chest_Button     onclick="Purchase_Bark_Chest()"    class="store-items">Just Some Bark and Duct Tape (10 copper)</button>
+            <button id = Purchase_Wooden_Chest_Button   onclick="Purchase_Wooden_Chest()"  class="store-items">Wooden Chest (1 Silver)</button>
+            <button id = Purchase_Copper_Chest_Button   onclick="Purchase_Copper_Chest()"  class="store-items">Copper Chest (5 Silver)</button>
     </div>
     <div id=weapon_a class="array">
 
@@ -73,6 +80,7 @@
 
 
 
+<!-- Javascript import section -->
 
     <script src="js/Pleasure_App.js" charset="utf-8"></script>
     <script src="js/Inventory.js" charset="utf-8"></script>

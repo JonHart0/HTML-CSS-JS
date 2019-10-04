@@ -66,6 +66,16 @@ header > h1 {
   display: none;
 }
 
+.Currency-copper{
+  color: #b87333;
+}
+.Currency-silver{
+  color: #C0C0C0;
+}
+.Currency-gold{
+  color: #FFD700;
+}
+
 .Purchase-Buttons{
   display: none;
   padding: 4px 4px;
