@@ -22,7 +22,7 @@ header > h1 {
   box-shadow: 0 9px #999;
   border: none;
   border-radius: 15%;
-  color: #fff;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
   font-size: 16px;
@@ -30,25 +30,21 @@ header > h1 {
   outline: none;
   text-align: center;
 }
-.option-Buttons:hover {
-  background-color: #404040
-}
-.option-Buttons:active {
-  background-color: #303030;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
+.option-Buttons:hover {background-color: #404040}
+.option-Buttons:active {background-color: #303030;  box-shadow: 0 5px #666; transform: translateY(4px);}
 
 #Inventory_Panel {
   background-color: #555555;
   color: #ffffff;
   display: none;
-  height: auto;
+  height: 128px;
   left: 0px;
   position: absolute;
   text-align: center;
   top: 128px;
   width: 128px;
+  border: 3px solid #444444;
+  border-radius: 6px;
 }
 
 #Store_Panel {
@@ -56,25 +52,37 @@ header > h1 {
   color: #ffffff;
   display: none;
   height: auto;
-  left: 128px;
+  left: 130px;
   top: 128px;
   position: absolute;
   width: 128px;
+  padding-bottom: 4px;
+  text-align: center;
+  border: 3px solid #444444;
+  border-radius: 6px;
 }
 
 .store-items{
   display: none;
-}
+  width: 90%;
+  height: 32px;
+  margin-left: 6px;
+  margin-top: 4px;
+  float: center;
 
-.Currency-copper{
-  color: #b87333;
 }
-.Currency-silver{
-  color: #C0C0C0;
+.unlockable {display: none;}
+
+.Currency{
+  display: inline-block;
+  float: right;
+  margin-top: 16px;
+  text-align: right;
 }
-.Currency-gold{
-  color: #FFD700;
-}
+.Currency > #Dis_Copper {color: #b87333;}
+.Currency > #Dis_Silver {color: #C0C0C0;}
+.Currency > #Dis_Gold {color: #FFD700;}
+
 
 .Purchase-Buttons{
   display: none;
@@ -108,12 +116,6 @@ header > h1 {
   display: inline-block;
 }
 
-.Currency {
-
-}
 .Pic{
   background-color: red;
-}
-.Unlockable {
-  display: none;
 }
