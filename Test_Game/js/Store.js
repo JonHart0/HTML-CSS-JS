@@ -1,25 +1,6 @@
-// Declare html constants
-
-
-
-const purchase_stick_sword_button_press  = document.getElementById("Purchase_Stick_Sword_Button");
-const purchase_wooden_sword_button_press = document.getElementById("Purchase_Wooden_Sword_Button");
-const purchase_copper_sword_button_press = document.getElementById("Purchase_Copper_Sword_Button");
-
-const purchase_bark_chest_button_press   = document.getElementById("Purchase_Bark_Chest_Button");
-const purchase_wooden_chest_button_press = document.getElementById("Purchase_Wooden_Chest_Button");
-const purchase_copper_chest_button_press = document.getElementById("Purchase_Copper_Chest_Button");
-
-
 ////////////////
 ////Weapons////
 //////////////
-
-const equipped_weapon = document.getElementById("Equipped_Weapon");
-
-const stick_sword   = document.getElementById("Stick_Sword");
-const wooden_sword  = document.getElementById("Wooden_Sword");
-const copper_sword  = document.getElementById("Copper_Sword");
 
 var stick_sword_cost   = 25;
 var wooden_sword_cost  = 100;
@@ -43,12 +24,6 @@ function Purchase_Item_Weapon(Total_Currency,Item_Cost,Item_Name,Item_Slot) {
 ////Armors////
 /////////////
 
-const equipped_armor = document.getElementById("Equipped_Armor");
-
-const bark_chest    = document.getElementById("Bark_Chest");
-const wooden_chest  = document.getElementById("Wooden_Chest");
-const copper_chest  = document.getElementById("Copper_Chest");
-
 var bark_chest_cost    = 50;
 var wooden_chest_cost  = 200;
 var copper_chest_cost  = 1000;
@@ -66,6 +41,7 @@ function Purchase_Item_Armor(Total_Currency,Item_Cost,Item_Name,Item_Slot) {
      }
 }
 
+
 ///////////////////////////
 ////PURCHASE FUNCTIONS////
 /////////////////////////
@@ -78,7 +54,6 @@ function Purchase_Spend_Currency(purchase_value,purchased_item) {
     purchase_buffer -= Math.floor(purchase_buffer/100)*100;
     copper -= purchase_buffer;
     purchased_item.style.display = "block";
-    //armor_a.innerHTML = [gold,silver,copper,purchase_buffer];
 
     if (copper < 0 && silver > 0) {
         silver--
@@ -94,7 +69,9 @@ function Purchase_Spend_Currency(purchase_value,purchased_item) {
 }
 
 
-
+////////////////////////////
+////PURCHASE HOVER COST////
+//////////////////////////
 
 purchase_stick_sword_button_press.title = Purchase_Button_Hover(stick_sword_cost);
 purchase_wooden_sword_button_press.title = Purchase_Button_Hover(wooden_sword_cost);
@@ -103,6 +80,7 @@ purchase_copper_sword_button_press.title = Purchase_Button_Hover(copper_sword_co
 purchase_bark_chest_button_press.title = Purchase_Button_Hover(bark_chest_cost);
 purchase_wooden_chest_button_press.title = Purchase_Button_Hover(wooden_chest_cost);
 purchase_copper_chest_button_press.title = Purchase_Button_Hover(copper_chest_cost);
+
   function Purchase_Button_Hover(Item_Cost) {
   var cost_array = [0,0,0]
   cost_array[0] = Math.floor(Item_Cost/10000);
@@ -129,7 +107,6 @@ if (cost_array[0] > 0 && cost_array[1] == 0 & cost_array[2] > 0) {
 if (cost_array[0] >0 && cost_array[1] > 0 & cost_array[2] > 0) {
   cost_array[3] = `${cost_array[0]} Gold, ${cost_array[1]} Silver, ${cost_array[2]} Copper`
 }
-
   return cost_array[3];
 }
 
@@ -138,73 +115,53 @@ if (cost_array[0] >0 && cost_array[1] > 0 & cost_array[2] > 0) {
 ////STORE ITEM DISPLAY CHECKER////
 /////////////////////////////////
 
+
 //Function checks the players total money and unlockes items as they
 //gain more money. If the player has enough money and doesnt own the items
 //the button turns green, red if not enough money, and black if already purchased
 function Currency_Check() {
 
-  //STICK SWORD
-  if (weapon_array[1] === 0) {
-      if (total_copper >= stick_sword_cost) {
-          purchase_stick_sword_button_press.style.display = "block";
-          purchase_stick_sword_button_press.style.backgroundColor = '#006000';
-    }else{purchase_stick_sword_button_press.style.backgroundColor = '#700000';
-         }
-  }else{purchase_stick_sword_button_press.style.backgroundColor = '#202020'
-      purchase_stick_sword_button_press.style.color = '#ffffff'}
+//STICK SWORD
+  Currency_Check_Display_Weapon(purchase_stick_sword_button_press,stick_sword_cost,1);
 
-  //WOODEN SWORD
-  if (weapon_array[2] === 0) {
-      if (total_copper >= wooden_sword_cost) {
-          purchase_wooden_sword_button_press.style.display = "block";
-          purchase_wooden_sword_button_press.style.backgroundColor = '#006000';
-    }else{purchase_wooden_sword_button_press.style.backgroundColor = '#700000';
-         }
-  }else{purchase_wooden_sword_button_press.style.backgroundColor = '#202020'
-        purchase_wooden_sword_button_press.style.color = '#ffffff'}
+//WOODEN SWORD
+  Currency_Check_Display_Weapon(purchase_wooden_sword_button_press,wooden_sword_cost,2);
 
 //COPPER SWORD
-  if (weapon_array[3] === 0) {
-      if (total_copper >= copper_sword_cost) {
-          purchase_copper_sword_button_press.style.display = "block";
-          purchase_copper_sword_button_press.style.backgroundColor = '#006000';
-    }else{purchase_copper_sword_button_press.style.backgroundColor = '#700000';
-         }
-  }else{purchase_copper_sword_button_press.style.backgroundColor = '#202020'
-        purchase_copper_sword_button_press.style.color = '#ffffff'}
+  Currency_Check_Display_Weapon(purchase_copper_sword_button_press,copper_sword_cost,3);
 
- //BARK CHEST
- if (armor_array[1] === 0) {
-      if (total_copper >= bark_chest_cost) {
-          purchase_bark_chest_button_press.style.display = "block";
-          purchase_bark_chest_button_press.style.backgroundColor = '#006000';
-    }else{purchase_bark_chest_button_press.style.backgroundColor = '#700000';
-         }
-  }else{purchase_bark_chest_button_press.style.backgroundColor = '#202020'
-        purchase_bark_chest_button_press.style.color = '#ffffff'}
+//BARK CHEST
+  Currency_Check_Display_Armor(purchase_bark_chest_button_press,bark_chest_cost,1);
 
 //WOODEN CHEST
-  if (armor_array[2] === 0) {
-    if (total_copper >= wooden_chest_cost) {
-        purchase_wooden_chest_button_press.style.display = "block";
-        purchase_wooden_chest_button_press.style.backgroundColor = '#006000';
-    }else{purchase_wooden_chest_button_press.style.backgroundColor = '#700000';
-         }
-  }else{purchase_wooden_chest_button_press.style.backgroundColor = '#202020'
-        purchase_wooden_chest_button_press.style.color = '#ffffff'}
+  Currency_Check_Display_Armor(purchase_wooden_chest_button_press,wooden_chest_cost,2);
 
 //COPPER CHEST
-  if (armor_array[3] === 0) {
-      if (total_copper >= copper_chest_cost) {
-          purchase_copper_chest_button_press.style.display = "block";
-          purchase_copper_chest_button_press.style.backgroundColor = '#006000';
-    }else{purchase_copper_chest_button_press.style.backgroundColor = '#700000';
-         }
-  }else{purchase_copper_chest_button_press.style.backgroundColor = '#202020'
-          purchase_copper_chest_button_press.style.color = '#ffffff'}
+  Currency_Check_Display_Armor(purchase_copper_chest_button_press,copper_chest_cost,3);
 }
 
 
+function Currency_Check_Display_Armor(Purchase_Button_Press,Item_Cost,Item_Number) {
+  if (armor_array[Item_Number] == 0){
+      if (total_copper >= Item_Cost) {
+          Purchase_Button_Press.style.display = "block";
+          Purchase_Button_Press.style.backgroundColor = '#006000';
+      }else{Purchase_Button_Press.style.backgroundColor = '#700000';
+     }
+  }else{Purchase_Button_Press.className = 'store-items-purchased';
+        Purchase_Button_Press.style.backgroundColor = '#202020';}
+}
+
+function Currency_Check_Display_Weapon(Purchase_Button_Press,Item_Cost,Item_Number) {
+  if (weapon_array[Item_Number] == 0){
+      if (total_copper >= Item_Cost) {
+          Purchase_Button_Press.style.display = "block";
+          Purchase_Button_Press.style.backgroundColor = '#006000';
+      }else{Purchase_Button_Press.style.backgroundColor = '#700000';
+     }
+  }else{Purchase_Button_Press.className = 'store-items-purchased';
+        Purchase_Button_Press.style.backgroundColor = '#202020';}
+}
 
 
-setInterval(function() {Currency_Check()}, 100);
+setInterval(function() {Currency_Check() }, 100);
