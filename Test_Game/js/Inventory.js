@@ -50,12 +50,6 @@ setInterval(function() {Currency_Conversion()}, 1000);
 //////////////////////
 
 
-const weapons = document.getElementById("Weapons");
-const armors = document.getElementById("Armors");
-const current_weapon_image = document.getElementById("Weapon_Image");
-const current_armor_image = document.getElementById("Armor_Image");
-
-
 
 function Switch_Image(From,To) {
 From.src = To.value;
