@@ -2,18 +2,15 @@
 ////Weapons////
 //////////////
 
-var stick_sword_cost   = 25;
-var wooden_sword_cost  = 100;
-var copper_sword_cost  = 500;
 
 //Function takes in weapon and currency information to check if item is already owned and changed icon accordingly
-function Purchase_Item_Weapon(Total_Currency,Item_Cost,Item_Name,Item_Slot) {
-  if (Total_Currency >= Item_Cost){
-    if (weapon_array[Item_Slot] === 0) {
-        Purchase_Spend_Currency(Item_Cost,Item_Name);
-        weapon_array[Item_Slot] = 1;
-        equipped_weapon.selectedIndex = Item_Slot;
-        current_weapon_image.src = equipped_weapon.value;
+function Purchase_Item_Weapon(Item) {
+  if (total_copper >= Item.Cost){
+    if (weapon_array[Item.Slot] === 0) {
+        Purchase_Spend_Currency(Item.Cost,Item.Drop);
+        weapon_array[Item.Slot] = 1;
+        equipped_weapon.selectedIndex = Item.Slot;
+        current_weapon_image.src = Item.Image;
 
           }
      }
@@ -24,18 +21,16 @@ function Purchase_Item_Weapon(Total_Currency,Item_Cost,Item_Name,Item_Slot) {
 ////Armors////
 /////////////
 
-var bark_chest_cost    = 50;
-var wooden_chest_cost  = 200;
-var copper_chest_cost  = 1000;
+
 
 //Function takes in armor and currency information to check if item is already owned and changed icon accordingly
-function Purchase_Item_Armor(Total_Currency,Item_Cost,Item_Name,Item_Slot) {
-  if (Total_Currency >= Item_Cost){
-    if (armor_array[Item_Slot] === 0) {
-        Purchase_Spend_Currency(Item_Cost,Item_Name);
-        armor_array[Item_Slot] = 1;
-        equipped_armor.selectedIndex = Item_Slot;
-        current_armor_image.src = equipped_armor.value;
+function Purchase_Item_Armor(Item) {
+  if (total_copper >= Item.Cost){
+    if (armor_array[Item.Slot] === 0) {
+        Purchase_Spend_Currency(Item.Cost,Item.Drop);
+        armor_array[Item.Slot] = 1;
+        equipped_armor.selectedIndex = Item.Slot;
+        current_armor_image.src = Item.Image;
 
           }
      }
@@ -55,6 +50,7 @@ function Purchase_Spend_Currency(purchase_value,purchased_item) {
     copper -= purchase_buffer;
     purchased_item.style.display = "block";
 
+
     if (copper < 0 && silver > 0) {
         silver--
         copper += 100;}
@@ -73,13 +69,13 @@ function Purchase_Spend_Currency(purchase_value,purchased_item) {
 ////PURCHASE HOVER COST////
 //////////////////////////
 
-purchase_stick_sword_button_press.title = Purchase_Button_Hover(stick_sword_cost);
-purchase_wooden_sword_button_press.title = Purchase_Button_Hover(wooden_sword_cost);
-purchase_copper_sword_button_press.title = Purchase_Button_Hover(copper_sword_cost);
+stick_sword_Item.Button.title   = Purchase_Button_Hover(stick_sword_Item.Cost);
+wooden_sword_Item.Button.title  = Purchase_Button_Hover(wooden_sword_Item.Cost);
+copper_sword_Item.Button.title  = Purchase_Button_Hover(copper_sword_Item.Cost);
 
-purchase_bark_chest_button_press.title = Purchase_Button_Hover(bark_chest_cost);
-purchase_wooden_chest_button_press.title = Purchase_Button_Hover(wooden_chest_cost);
-purchase_copper_chest_button_press.title = Purchase_Button_Hover(copper_chest_cost);
+bark_chest_Item.Button.title    = Purchase_Button_Hover(bark_chest_Item.Cost);
+wooden_chest_Item.Button.title  = Purchase_Button_Hover(wooden_chest_Item.Cost);
+copper_chest_Item.Button.title  = Purchase_Button_Hover(copper_chest_Item.Cost);
 
   function Purchase_Button_Hover(Item_Cost) {
   var cost_array = [0,0,0]
@@ -122,22 +118,22 @@ if (cost_array[0] >0 && cost_array[1] > 0 & cost_array[2] > 0) {
 function Currency_Check() {
 
 //STICK SWORD
-  Currency_Check_Display_Weapon(purchase_stick_sword_button_press,stick_sword_cost,1);
+  Currency_Check_Display_Weapon(purchase_stick_sword_button_press,stick_sword_Item.Cost,stick_sword_Item.Slot);
 
 //WOODEN SWORD
-  Currency_Check_Display_Weapon(purchase_wooden_sword_button_press,wooden_sword_cost,2);
+  Currency_Check_Display_Weapon(purchase_wooden_sword_button_press,wooden_sword_Item.Cost,wooden_sword_Item.Slot);
 
 //COPPER SWORD
-  Currency_Check_Display_Weapon(purchase_copper_sword_button_press,copper_sword_cost,3);
+  Currency_Check_Display_Weapon(purchase_copper_sword_button_press,copper_sword_Item.Cost,copper_sword_Item.Slot);
 
 //BARK CHEST
-  Currency_Check_Display_Armor(purchase_bark_chest_button_press,bark_chest_cost,1);
+  Currency_Check_Display_Armor(purchase_bark_chest_button_press,bark_chest_Item.Cost,bark_chest_Item.Slot);
 
 //WOODEN CHEST
-  Currency_Check_Display_Armor(purchase_wooden_chest_button_press,wooden_chest_cost,2);
+  Currency_Check_Display_Armor(purchase_wooden_chest_button_press,wooden_chest_Item.Cost,wooden_chest_Item.Slot);
 
 //COPPER CHEST
-  Currency_Check_Display_Armor(purchase_copper_chest_button_press,copper_chest_cost,3);
+  Currency_Check_Display_Armor(purchase_copper_chest_button_press,copper_chest_Item.Cost,copper_chest_Item.Slot);
 }
 
 

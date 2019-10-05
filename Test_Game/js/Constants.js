@@ -26,7 +26,7 @@ const purchase_bark_chest_button_press   = document.getElementById("Purchase_Bar
 const purchase_wooden_chest_button_press = document.getElementById("Purchase_Wooden_Chest_Button");
 const purchase_copper_chest_button_press = document.getElementById("Purchase_Copper_Chest_Button");
 
-const stick_sword   = document.getElementById("Stick_Sword");
+//const stick_sword   = document.getElementById("Stick_Sword");
 const wooden_sword  = document.getElementById("Wooden_Sword");
 const copper_sword  = document.getElementById("Copper_Sword");
 

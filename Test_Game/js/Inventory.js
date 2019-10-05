@@ -5,7 +5,7 @@ var gold    = 0;
 
 var copper_value = 1;
 var silver_value = 100;
-var gold_value = 10000
+var gold_value = 10000;
 
 var total_copper = 0;
 
@@ -28,6 +28,8 @@ setInterval(function() {
         Dis_Copper.innerHTML = `Copper: ${copper}`;
         Dis_Silver.innerHTML = `Silver: ${silver}`;
         Dis_Gold.innerHTML = `Gold:   ${gold}`;
+        armor_a.innerHTML = current_weapon_image.value
+        weapon_a.innerHTML = equipped_weapon.value
     },1000);
 
 
