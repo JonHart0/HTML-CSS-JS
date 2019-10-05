@@ -56,10 +56,10 @@
 
               <p>Armor: <img id="Armor_Image" src="images/Bare_Chest.png"></p>
               <select id="Equipped_Armor" onchange= Switch_Image(current_armor_image,equipped_armor)>
-                <option id="Bare_Chest"   value="images/Bare_Chest.png"     selected            >Bare Chest   </option>
-                <option id="Bark_Chest"   value="images/Bark_Chest.png"     class="unlockable"  >Bark Chest   </option>
-                <option id="Wooden_Chest" value="images/Wooden_Chest.png"   class="unlockable"  >Wooden Chest </option>
-                <option id="Copper_Chest" value="images/Copper_Chest.png"   class="unlockable"  >Copper Chest </option>
+                <option id="Bare_Chest"   value="images/Bare_Chest.png"     title="Bare as the day you were born (+0 Def)"selected                                >Bare Chest   </option>
+                <option id="Bark_Chest"   value="images/Bark_Chest.png"     title="You managed to tape some bark around your chest (+1 Def)"  class="unlockable"  >Bark Chest   </option>
+                <option id="Wooden_Chest" value="images/Wooden_Chest.png"   title="A hollow old log with two arm holes chizeled out (+3 Def)" class="unlockable"  >Wooden Chest </option>
+                <option id="Copper_Chest" value="images/Copper_Chest.png"   title="Beware of Lightning (+8 Def)"                              class="unlockable"  >Copper Chest </option>
               </select>
             </div>
     </div>
@@ -72,7 +72,7 @@
         <h3>Store:</h3>
 
         <!--Weapon Buttons in Store-->
-            <button id = Purchase_Stick_Sword_Button    onclick="Purchase_Item_Weapon(total_copper,stick_sword_cost,stick_sword,1)"     class="store-items">Just A Stick</button>
+            <button id = Purchase_Stick_Sword_Button    onclick="Purchase_Item_Weapon(total_copper,stick_sword_cost,stick_sword,1)"   damage ="2"  class="store-items">Just A Stick</button>
             <button id = Purchase_Wooden_Sword_Button   onclick="Purchase_Item_Weapon(total_copper,wooden_sword_cost,wooden_sword,2)"   class="store-items">Wooden Sword</button>
             <button id = Purchase_Copper_Sword_Button   onclick="Purchase_Item_Weapon(total_copper,copper_sword_cost,copper_sword,3)"   class="store-items">Copper Sword</button>
 
@@ -96,8 +96,11 @@
 
 
 <!-- Javascript import section -->
+<script src="js/Constants.js" charset="utf-8"></script>
     <script src="js/Pleasure_App.js" charset="utf-8"></script>
     <script src="js/Inventory.js" charset="utf-8"></script>
     <script src="js/Store.js" charset="utf-8"></script>
+    <script src="js/Player.js" charset="utf-8"></script>
+
   </body>
 </html>
