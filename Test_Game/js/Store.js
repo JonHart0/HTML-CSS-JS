@@ -10,7 +10,6 @@ function Purchase_Item_Weapon(Item) {
         Purchase_Spend_Currency(Item.Cost,Item.Drop);
         weapon_array[Item.Slot] = 1;
         equipped_weapon.selectedIndex = Item.Slot;
-        current_weapon_image.src = Item.Image;
 
           }
      }
@@ -29,8 +28,7 @@ function Purchase_Item_Armor(Item) {
     if (armor_array[Item.Slot] === 0) {
         Purchase_Spend_Currency(Item.Cost,Item.Drop);
         armor_array[Item.Slot] = 1;
-        equipped_armor.selectedIndex = Item.Slot;
-        current_armor_image.src = Item.Image;
+        Equip_Armor_Store(Item)
 
           }
      }

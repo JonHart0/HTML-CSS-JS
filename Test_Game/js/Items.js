@@ -20,3 +20,11 @@ var copper_chest_Item   = {Drop: document.getElementById("Copper_Chest"), Button
 
 //const equipped_weapon = document.getElementById("Equipped_Weapon");
 //const equipped_armor = document.getElementById("Equipped_Armor");
+
+
+
+
+
+
+// EQUIPPED WEAPON
+// current_weapon_image

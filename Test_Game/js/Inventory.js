@@ -23,13 +23,14 @@ setInterval(function() {copper++;},1000);
 ////Currency Updater////
 ///////////////////////
 
+
 setInterval(function() {
         total_copper = copper + (silver * silver_value) + (gold * gold_value);
         Dis_Copper.innerHTML = `Copper: ${copper}`;
         Dis_Silver.innerHTML = `Silver: ${silver}`;
         Dis_Gold.innerHTML = `Gold:   ${gold}`;
-        armor_a.innerHTML = current_weapon_image.value
-        weapon_a.innerHTML = equipped_weapon.value
+        armor_a.innerHTML = found
+        weapon_a.innerHTML = `current_armor_image:   ${current_armor_image.src}`;
     },1000);
 
 
@@ -51,7 +52,7 @@ setInterval(function() {Currency_Conversion()}, 1000);
 ////Inventory Items////
 //////////////////////
 
-
+//onchange= Switch_Image(current_weapon_image,equipped_weapon)
 
 function Switch_Image(From,To) {
 From.src = To.value;
@@ -60,3 +61,30 @@ From.src = To.value;
 //////////////////
 ////Equipment////
 ////////////////
+
+//onclick="Purchase_Item_Armor(bark_chest_Item)"
+
+/*function Purchase_Item_Armor(Item) {
+  if (total_copper >= Item.Cost){
+    if (armor_array[Item.Slot] === 0) {
+        Purchase_Spend_Currency(Item.Cost,Item.Drop);
+        armor_array[Item.Slot] = 1;
+        equipped_armor.selectedIndex = Item.Slot;
+        Equip(Item)
+          }
+     }
+}
+*/
+
+//var equipped_weapon_array = [1,0,0,0]
+//var equipped_armor_array  = [1,0,0,0]
+
+function Equip_Armor(Equip) {
+    armor_a[Equip.slot] = 1
+    armor_a[last_armor_equipped] = 0;
+    last_armor_equipped = Equip.Slot;
+    equipped_armor.selectedIndex = Equip.Slot;
+    equipped_armor.src = Equip.Image;
+    current_armor_image.src = Equip.Image;
+    fromstore = 0;
+  }

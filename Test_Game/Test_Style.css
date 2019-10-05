@@ -104,12 +104,20 @@ header > h1 {
 .Currency > #Dis_Gold {color: #FFD700;}
 
 
-.array{
+.array_a{
   background-color: white;
-  margin-top: 640px;
+  position: absolute;
+  top: 400px;
   height: auto;
-  width: 300px;
-  display: inline-block;
+  width: 500px;
+}
+
+.array_w{
+  background-color: white;
+  position: absolute;
+  top: 425px;
+  height: auto;
+  width: 500px;
 }
 
 .Pic{
