@@ -43,9 +43,10 @@
 
             <div id="Weapons" class="Weapons">
 
-              <p>Weapon: <img id="Weapon_Image" src="images/Empty_Handed.png"></p>
-                <select  id="Equipped_Weapon"     src="images/Empty_Handed.png" onchange= Switch_Image(current_weapon_image,equipped_weapon) title="Test">
-                  <option id="Empty_Handed"        selected             >Empty Handed         </option>
+              <p>Weapon: <img id="Current_Weapon_Image" src="images/Empty_Handed.png"></p>
+
+                <select  id="Equipped_Weapon"      onchange= Equip_Weapon_Select(equipped_weapon) title="Buy Something First!">
+                  <option id="Empty_Handed"        selected             >Empty Handed</option>
                   <option id="Stick_Sword"         class="unlockable"  >Stick</option>
                   <option id="Wooden_Sword"        class="unlockable"  >Wooden Sword </option>
                   <option id="Copper_Sword"        class="unlockable"  >Copper Sword </option>
@@ -54,8 +55,9 @@
 
             <div id=Armor class="Armor">
 
-              <p>Armor: <img id="Armor_Image" src="images/Bare_Chest.png"></p>
-              <select id="Equipped_Armor"     src="images/Bare_Chest.png" onchange= Equip_Armor(equipped_armor)>
+              <p>Armor: <img id="Current_Armor_Image" src="images/Bare_Chest.png" title="Buy Something First!"></p>
+
+              <select id="Equipped_Armor"    onchange= Equip_Armor_Select(equipped_armor)>
                 <option id="Bare_Chest"      selected            >Bare Chest   </option>
                 <option id="Bark_Chest"      class="unlockable"  >Bark Chest   </option>
                 <option id="Wooden_Chest"    class="unlockable"  >Wooden Chest </option>
@@ -77,19 +79,10 @@
             <button id = Purchase_Copper_Sword_Button   onclick="Purchase_Item_Weapon(copper_sword_Item)"   class="store-items">Copper Sword</button>
 
 
-      <!--Armor Buttons in Store-->
-            <button id = Purchase_Bark_Chest_Button     onclick="Purchase_Item_Armor(bark_chest_Item)"    class="store-items">Bark and Duct Tape</button>
-            <button id = Purchase_Wooden_Chest_Button   onclick="Purchase_Item_Armor(wooden_chest_Item)"  class="store-items">Wooden Chest</button>
-            <button id = Purchase_Copper_Chest_Button   onclick="Purchase_Item_Armor(copper_chest_Item)"  class="store-items">Copper Chest</button>
-    </div>
-    <div id=weapon_a class="array_w">
-
-    </div>
-    <div id=armor_a class="array_a">
-
-    </div>
-
-
+       <!--Armor Buttons in Store-->
+            <button id = Purchase_Bark_Chest_Button     onclick="Purchase_Item_Armor(bark_chest_Item)"      class="store-items">Bark and Duct Tape</button>
+            <button id = Purchase_Wooden_Chest_Button   onclick="Purchase_Item_Armor(wooden_chest_Item)"    class="store-items">Wooden Chest</button>
+            <button id = Purchase_Copper_Chest_Button   onclick="Purchase_Item_Armor(copper_chest_Item)"    class="store-items">Copper Chest</button>
 
 
 

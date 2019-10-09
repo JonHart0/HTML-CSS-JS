@@ -29,8 +29,6 @@ setInterval(function() {
         Dis_Copper.innerHTML = `Copper: ${copper}`;
         Dis_Silver.innerHTML = `Silver: ${silver}`;
         Dis_Gold.innerHTML = `Gold:   ${gold}`;
-        armor_a.innerHTML = found
-        weapon_a.innerHTML = `current_armor_image:   ${current_armor_image.src}`;
     },1000);
 
 
@@ -52,39 +50,53 @@ setInterval(function() {Currency_Conversion()}, 1000);
 ////Inventory Items////
 //////////////////////
 
-//onchange= Switch_Image(current_weapon_image,equipped_weapon)
 
-function Switch_Image(From,To) {
-From.src = To.value;
-}
 
 //////////////////
 ////Equipment////
 ////////////////
 
-//onclick="Purchase_Item_Armor(bark_chest_Item)"
 
-/*function Purchase_Item_Armor(Item) {
-  if (total_copper >= Item.Cost){
-    if (armor_array[Item.Slot] === 0) {
-        Purchase_Spend_Currency(Item.Cost,Item.Drop);
-        armor_array[Item.Slot] = 1;
-        equipped_armor.selectedIndex = Item.Slot;
-        Equip(Item)
-          }
-     }
-}
-*/
-
-//var equipped_weapon_array = [1,0,0,0]
-//var equipped_armor_array  = [1,0,0,0]
-
-function Equip_Armor(Equip) {
-    armor_a[Equip.slot] = 1
-    armor_a[last_armor_equipped] = 0;
+function Equip_Armor_Store(Equip) {
+    equipped_armor_array[last_armor_equipped] = 0;
     last_armor_equipped = Equip.Slot;
+    equipped_armor_array[Equip.Slot] = 1;
     equipped_armor.selectedIndex = Equip.Slot;
-    equipped_armor.src = Equip.Image;
     current_armor_image.src = Equip.Image;
-    fromstore = 0;
+    equipped_armor.title = Equip.Description;
+    console.log(armor_array);
+    console.log(equipped_armor_array);
+
   }
+function Equip_Weapon_Store(Equip) {
+    equipped_weapon_array[last_weapon_equipped] = 0;
+    last_weapon_equipped = Equip.Slot;
+    equipped_weapon_array[Equip.Slot] = 1;
+    equipped_weapon.selectedIndex = Equip.Slot;
+    current_weapon_image.src = Equip.Image;
+    equipped_weapon.title = Equip.Description;
+    console.log(weapon_array);
+    console.log(equipped_weapon_array);
+  }
+
+function Equip_Armor_Select(Equip) {
+    equipped_armor_array[last_armor_equipped] = 0;
+    last_armor_equipped = equipped_armor.selectedIndex;
+    equipped_armor_array[equipped_armor.selectedIndex] = 1;
+    current_armor_image.src = Armor_List[equipped_armor.selectedIndex].Image;
+    equipped_armor.title = Armor_List[equipped_armor.selectedIndex].Description;
+    console.log(armor_array);
+    console.log(equipped_armor_array);
+  }
+
+
+
+function Equip_Weapon_Select(Equip) {
+    equipped_weapon_array[last_weapon_equipped] = 0;
+    last_weapon_equipped = equipped_weapon.selectedIndex;
+    equipped_weapon_array[equipped_weapon.selectedIndex] = 1;
+    current_weapon_image.src = Weapon_List[equipped_weapon.selectedIndex].Image;
+    equipped_weapon.title = Weapon_List[equipped_weapon.selectedIndex].Description;
+    console.log(armor_array);
+    console.log(equipped_armor_array);
+    }

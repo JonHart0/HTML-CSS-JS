@@ -5,8 +5,8 @@
 const weapons = document.getElementById("Weapons");
 const armors = document.getElementById("Armors");
 
-const current_weapon_image = document.getElementById("Weapon_Image");
-const current_armor_image = document.getElementById("Armor_Image");
+const current_weapon_image = document.getElementById("Current_Weapon_Image");
+const current_armor_image = document.getElementById("Current_Armor_Image");
 
 const equipped_weapon = document.getElementById("Equipped_Weapon");
 const equipped_armor = document.getElementById("Equipped_Armor");

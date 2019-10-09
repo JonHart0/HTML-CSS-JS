@@ -9,8 +9,7 @@ function Purchase_Item_Weapon(Item) {
     if (weapon_array[Item.Slot] === 0) {
         Purchase_Spend_Currency(Item.Cost,Item.Drop);
         weapon_array[Item.Slot] = 1;
-        equipped_weapon.selectedIndex = Item.Slot;
-
+        Equip_Weapon_Store(Item);
           }
      }
 }

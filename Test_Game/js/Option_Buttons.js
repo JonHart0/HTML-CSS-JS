@@ -27,6 +27,7 @@ function Store() {
 
 function Beg() {
     copper += 100;
+    console.log(test)
 
 }
 
