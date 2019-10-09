@@ -34,3 +34,13 @@ const copper_sword  = document.getElementById("Copper_Sword");
 const bark_chest    = document.getElementById("Bark_Chest");
 const wooden_chest  = document.getElementById("Wooden_Chest");
 const copper_chest  = document.getElementById("Copper_Chest");
+
+
+/////////////////////////
+////PLAYER CONSTANTS////
+//////////////////////
+
+
+const dis_player_HP = document.getElementById("Dis_Player_HP");
+const dis_player_ATK = document.getElementById("Dis_Player_ATK");
+const dis_player_DEF = document.getElementById("Dis_Player_DEF");
