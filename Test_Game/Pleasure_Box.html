@@ -19,6 +19,13 @@
         <p id= "Dis_Silver"></p>
         <p id= "Dis_Gold"></p>
       </div>
+
+      <!-- Player Stats Display -->
+      <div id="Stat_Panel" class="Stats">
+        <p id= "Dis_Player_HP"></p>
+        <p id= "Dis_Player_ATK"></p>
+        <p id= "Dis_Player_DEF"></p>
+      </div>
     </header>
 
         <!---------------------------->
@@ -45,8 +52,8 @@
 
               <p>Weapon: <img id="Current_Weapon_Image" src="images/Empty_Handed.png"></p>
 
-                <select  id="Equipped_Weapon"      onchange= Equip_Weapon_Select(equipped_weapon) title="Buy Something First!">
-                  <option id="Empty_Handed"        selected             >Empty Handed</option>
+                <select  id="Equipped_Weapon"      onchange= Equip_Weapon_Select(equipped_weapon) >
+                  <option id="Empty_Handed"        selected            >Empty Handed</option>
                   <option id="Stick_Sword"         class="unlockable"  >Stick</option>
                   <option id="Wooden_Sword"        class="unlockable"  >Wooden Sword </option>
                   <option id="Copper_Sword"        class="unlockable"  >Copper Sword </option>
@@ -55,7 +62,7 @@
 
             <div id=Armor class="Armor">
 
-              <p>Armor: <img id="Current_Armor_Image" src="images/Bare_Chest.png" title="Buy Something First!"></p>
+              <p>Armor: <img id="Current_Armor_Image" src="images/Bare_Chest.png" ></p>
 
               <select id="Equipped_Armor"    onchange= Equip_Armor_Select(equipped_armor)>
                 <option id="Bare_Chest"      selected            >Bare Chest   </option>
