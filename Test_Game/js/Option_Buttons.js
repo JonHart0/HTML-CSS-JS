@@ -27,7 +27,8 @@ function Store() {
 
 function Beg() {
     copper += 100;
-    console.log(test)
+    console.log(player_ATK);
+    console.log(player_DEF);
 
 }
 
