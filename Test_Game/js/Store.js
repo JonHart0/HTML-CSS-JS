@@ -66,13 +66,13 @@ function Purchase_Spend_Currency(purchase_value,purchased_item) {
 ////PURCHASE HOVER COST////
 //////////////////////////
 
-stick_sword_Item.Button.title   = Purchase_Button_Hover(stick_sword_Item.Cost);
-wooden_sword_Item.Button.title  = Purchase_Button_Hover(wooden_sword_Item.Cost);
-copper_sword_Item.Button.title  = Purchase_Button_Hover(copper_sword_Item.Cost);
+stick_sword_Item.Button.title   = `${Purchase_Button_Hover(stick_sword_Item.Cost)}  (${stick_sword_Item.Stats})`;
+wooden_sword_Item.Button.title  = `${Purchase_Button_Hover(wooden_sword_Item.Cost)}  (${wooden_sword_Item.Stats})`;
+copper_sword_Item.Button.title  = `${Purchase_Button_Hover(copper_sword_Item.Cost)}  (${copper_sword_Item.Stats})`;
 
-bark_chest_Item.Button.title    = Purchase_Button_Hover(bark_chest_Item.Cost);
-wooden_chest_Item.Button.title  = Purchase_Button_Hover(wooden_chest_Item.Cost);
-copper_chest_Item.Button.title  = Purchase_Button_Hover(copper_chest_Item.Cost);
+bark_chest_Item.Button.title    = `${Purchase_Button_Hover(bark_chest_Item.Cost)}  (${bark_chest_Item.Stats})`;
+wooden_chest_Item.Button.title  = `${Purchase_Button_Hover(wooden_chest_Item.Cost)}  (${wooden_chest_Item.Stats})`;
+copper_chest_Item.Button.title  = `${Purchase_Button_Hover(copper_chest_Item.Cost)}  (${copper_chest_Item.Stats})`;
 
   function Purchase_Button_Hover(Item_Cost) {
   var cost_array = [0,0,0]
