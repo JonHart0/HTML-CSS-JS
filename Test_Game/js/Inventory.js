@@ -29,6 +29,11 @@ setInterval(function() {
         Dis_Copper.innerHTML = `Copper: ${copper}`;
         Dis_Silver.innerHTML = `Silver: ${silver}`;
         Dis_Gold.innerHTML = `Gold:   ${gold}`;
+        Dis_Player_HP.innerHTML = `HP: ${player_HP}`;
+        Dis_Player_ATK.innerHTML = `ATK: ${player_ATK}`;
+        Dis_Player_DEF.innerHTML = `DEF:   ${player_DEF}`;
+
+
     },1000);
 
 
@@ -64,8 +69,10 @@ function Equip_Armor_Store(Equip) {
     equipped_armor.selectedIndex = Equip.Slot;
     current_armor_image.src = Equip.Image;
     equipped_armor.title = Equip.Description;
+    Equip.Drop.title = Equip.Stats;
     console.log(armor_array);
     console.log(equipped_armor_array);
+    Player_Update()
 
   }
 function Equip_Weapon_Store(Equip) {
@@ -75,8 +82,10 @@ function Equip_Weapon_Store(Equip) {
     equipped_weapon.selectedIndex = Equip.Slot;
     current_weapon_image.src = Equip.Image;
     equipped_weapon.title = Equip.Description;
+    Equip.Drop.title = Equip.Stats;
     console.log(weapon_array);
     console.log(equipped_weapon_array);
+    Player_Update()
   }
 
 function Equip_Armor_Select(Equip) {
@@ -87,6 +96,7 @@ function Equip_Armor_Select(Equip) {
     equipped_armor.title = Armor_List[equipped_armor.selectedIndex].Description;
     console.log(armor_array);
     console.log(equipped_armor_array);
+    Player_Update()
   }
 
 
@@ -99,4 +109,5 @@ function Equip_Weapon_Select(Equip) {
     equipped_weapon.title = Weapon_List[equipped_weapon.selectedIndex].Description;
     console.log(armor_array);
     console.log(equipped_armor_array);
+    Player_Update();
     }
