@@ -103,6 +103,18 @@ header > h1 {
 .Currency > #Dis_Silver {color: #C0C0C0;}
 .Currency > #Dis_Gold {color: #FFD700;}
 
+.Stats{
+  display: inline-block;
+  float: right;
+  margin-top: 16px;
+  margin-right: 16px;
+  text-align: right;
+}
+.Stats > #Dis_Player_HP {color: red;}
+.Stats > #Dis_Player_ATK{color: white;}
+.Stats > #Dis_Player_DEF{color: white;}
+
+
 
 .array_a{
   background-color: white;
