@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Asap&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #24272E
+}
+header{
+  background: #DDDDDD;
+  padding: 20px;
+}
+/*Subsection h1 of HEADER will have these modifications*/
+header > h1 {
+  color: #25272E;
+  text-align: center;
+  font-family: Asap, sans-serif;
+}
+
+.score-board {
+  margin: 20px auto;
+  border: 3px solid white;
+  border-radius: 4px;
+  text-align: center;
+  width: 200px;
+  color: white;
+  font-size: 46px;
+  padding: 15px 20px;
+  font-family: Asap, sans-serif;
+  position: relative;
+}
+/*Style for the numbers on the SCOREBOARD*/
+.user-badge {
+  background: green;
+  color: white;
+  font-size: 14px;
+  padding: 2px 10px;
+  font-family: Asap, sans-serif;
+}
+
+.computer-badge {
+  background: red;
+  color: white;
+  font-size: 14px;
+  padding: 2px 10px;
+  font-family: Asap, sans-serif;
+}
+
+/*Label to denote the USER score on the left side of SCOREBOARD*/
+#user_label {
+  position: absolute;
+  top: 30px;
+  left: -25px;
+}
+
+/*Label to denote the COMPUTER score on the right side of SCOREBOARD*/
+#computer_label {
+  position: absolute;
+  top: 30px;
+  right: -30px;
+}
+
+/*Results after the game saying who choose which option*/
+.result{
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-family: Asap, sans-serif;
+}
+
+/*Changes the color of the players choices for distinction*/
+#result_user {color:green;}
+#result_computer {color:red;}
+
+
+/*Sets the parent of choice to display in the center of the screen*/
+.choices {
+  margin-top: 50px;
+  text-align: center;
+}
+/*Cirlces the pictures and sets them inline, adds transition speed*/
+.choice {
+  border: 4px solid #DDDDDD;
+  border-radius: 50%;
+  margin: 0 20px;
+  padding: 4px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+/*On hover change mouse style and change color of background to black*/
+.choice:hover {
+  cursor: pointer;
+  background: #000000;
+}
+
+#action-message {
+  text-align: center;
+  color: white;
+  font-family: Asap, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 20px;
+}
+/*Adds a shadow and change the color of the cirlce to green*/
+.green-glow {
+  border: 4px solid #4dcc7d;
+  box-shadow: 0 0 10px #31b43a;
+}
+/*Adds a shadow and change the color of the cirlce to red*/
+.red-glow {
+  border: 4px solid ##fc121b;
+  box-shadow: 0 0 10px #d01115;
+}
+
+/*Adds a shadow and change the color of the cirlce to gray*/
+.gray-glow {
+  border: 4px solid #464647;
+  box-shadow: 0 0 10px #25292b"
+}
