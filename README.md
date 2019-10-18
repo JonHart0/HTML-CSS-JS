@@ -1,7 +1,7 @@
 Learning to use Github
 
 Pandora's Box is an HTML/CSS/JavaScript based game. 
-I was inspired by the Candy Box games (ascii based game), this led me to learn to web-based code
+I was inspired by the Candy Box games (ascii based game), this led me to learn to web-based code (HTML-CSS-JS)
 
 Features currently implemented:
 -Currency is 90% working
