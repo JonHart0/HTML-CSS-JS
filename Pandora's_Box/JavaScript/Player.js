@@ -21,6 +21,20 @@ var player_ATK = player_ATK_base;
 var player_DEF = player_DEF_base;
 
 
+const player_health_bar = document.getElementById("Dis_Player_Health_Bar")
+
+function Player_Health_Change() {
+  if (player_HP == 0) {
+    location.reload();
+  }
+  if (player_HP >= player_HP_base) {
+    console.log("Full Health!")
+    player_HP = player_HP_base;
+  }
+  player_health_bar.style.width = ((player_HP / player_HP_base) *100) + "%";
+
+}
+
 
 
 
@@ -33,7 +47,6 @@ function Player_Update() {
   items_DEF   = Armor_List[equipped_armor.selectedIndex].DEF + Weapon_List[equipped_weapon.selectedIndex].DEF;
   items_ATK   = Armor_List[equipped_armor.selectedIndex].ATK + Weapon_List[equipped_weapon.selectedIndex].ATK;
 
-  player_HP = player_HP_base;
   player_ATK = player_ATK_base + items_ATK;
   player_DEF = player_DEF_base + items_DEF;
 
