@@ -34,7 +34,7 @@ setInterval(function() {
         Dis_Player_DEF.innerHTML = `DEF:   ${player_DEF}`;
 
 
-    },1000);
+    },100);
 
 
 function Currency_Conversion() {
