@@ -1,11 +1,11 @@
 //Declare html constants to save processing power
 const store_panel_press = document.getElementById("Store_Panel");
 const inventory_panel_press = document.getElementById("Inventory_Panel");
-
+const debug_panel_press = document.getElementById("Debug_Panel");
 
 //////////////////////////////////
 ////Show-Hide panel functions////
-///////////////////////////////
+////////////////////////////////
 
 //Swap the Inventory panel from .display: none; to .dispaly: block
 function Inventory() {
@@ -25,15 +25,36 @@ function Store() {
     }
 }
 
+function Debug() {
+    if (debug_panel_press.style.display === "block") {
+        debug_panel_press.style.display = "none";
+    } else {
+        debug_panel_press.style.display = "block";
+    }
+}
+
+
+////////////////////
+////Debug Panel////
+//////////////////
+
+
 function Beg() {
     copper += 100;
-    console.log(player_ATK);
-    console.log(player_DEF);
-
 }
 
 function Take() {
     copper = 0;
     silver = 0;
     gold = 0;
+}
+
+function Heal_Player() {
+  player_HP += 1;
+  Player_Health_Change()
+}
+
+function Damage_Player() {
+  player_HP -= 1;
+  Player_Health_Change()
 }

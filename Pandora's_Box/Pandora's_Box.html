@@ -26,6 +26,11 @@
         <p id= "Dis_Player_ATK"></p>
         <p id= "Dis_Player_DEF"></p>
       </div>
+
+      <!-- Player Health Bar-->
+      <div id="Health_Panel">
+        <p id= "Dis_Player_Health_Bar"></p>
+      </div>
     </header>
 
         <!---------------------------->
@@ -33,11 +38,10 @@
     <!---------------------------->
 
     <div>
-      <button id=Pandora's_Box_Button  onclick="TO-BE-DETERMINED"    class="option-Buttons">Pandora's Box </button>
-      <button id=Inventory_Button     onclick="Inventory();"        class="option-Buttons">Inventory    </button>
-      <button id=Store_Button         onclick="Store();"            class="option-Buttons">Store        </button>
-      <button id=Beg_Button           onclick="Beg();"              class="option-Buttons">Beg          </button>
-      <button id=Take_Button          onclick="Take();"             class="option-Buttons">Take         </button>
+      <button id=Pandora's_Box_Button  onclick="TO-BE-DETERMINED"   class="option-Buttons">Pandora's Box</button>
+      <button id=Inventory_Button     onclick="Inventory();"        class="option-Buttons">Inventory</button>
+      <button id=Store_Button         onclick="Store();"            class="option-Buttons">Store</button>
+      <button id=Debug_Button         onclick="Debug();"            class="option-Buttons">Debug</button>
     </div>
 
         <!----------------------->
@@ -90,8 +94,18 @@
             <button id = Purchase_Bark_Chest_Button     onclick="Purchase_Item_Armor(bark_chest_Item)"      class="store-items">Bark and Duct Tape</button>
             <button id = Purchase_Wooden_Chest_Button   onclick="Purchase_Item_Armor(wooden_chest_Item)"    class="store-items">Wooden Chest</button>
             <button id = Purchase_Copper_Chest_Button   onclick="Purchase_Item_Armor(copper_chest_Item)"    class="store-items">Copper Chest</button>
+    </div>
 
 
+        <!------------------->
+      <!---Debug SECTION--->
+    <!------------------->
+    <div id= Debug_Panel>
+      <button id=Beg_Button           onclick="Beg();"              class="option-Buttons">Beg</button>
+      <button id=Take_Button          onclick="Take();"             class="option-Buttons">Take</button>
+      <button id=Heal_Button          onclick="Heal_Player();"      class="option-Buttons">Heal</button>
+      <button id=Hurt_Button          onclick="Damage_Player();"    class="option-Buttons">Hurt</button>
+    </div>
 
 
 
