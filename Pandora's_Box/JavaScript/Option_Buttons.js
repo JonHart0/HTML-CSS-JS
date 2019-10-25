@@ -1,6 +1,7 @@
 //Declare html constants to save processing power
 const store_panel_press = document.getElementById("Store_Panel");
 const inventory_panel_press = document.getElementById("Inventory_Panel");
+const combat_panel_press = document.getElementById("Combat_Panel")
 const debug_panel_press = document.getElementById("Debug_Panel");
 
 //////////////////////////////////
@@ -25,6 +26,15 @@ function Store() {
     }
 }
 
+function Combat() {
+    if (combat_panel_press.style.display === "block") {
+        combat_panel_press.style.display = "none";
+    } else {
+        combat_panel_press.style.display = "block";
+    }
+}
+
+
 function Debug() {
     if (debug_panel_press.style.display === "block") {
         debug_panel_press.style.display = "none";
@@ -41,6 +51,8 @@ function Debug() {
 
 function Beg() {
     copper += 100;
+      console.log(player)
+      console.log(player.Current_HP)
 }
 
 function Take() {
@@ -50,11 +62,11 @@ function Take() {
 }
 
 function Heal_Player() {
-  player_HP += 1;
+  player.Current_HP += 1;
   Player_Health_Change()
 }
 
 function Damage_Player() {
-  player_HP -= 1;
+  player.Current_HP -= 1;
   Player_Health_Change()
 }
