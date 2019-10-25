@@ -29,10 +29,6 @@ setInterval(function() {
         Dis_Copper.innerHTML = `Copper: ${copper}`;
         Dis_Silver.innerHTML = `Silver: ${silver}`;
         Dis_Gold.innerHTML = `Gold:   ${gold}`;
-        Dis_Player_HP.innerHTML = `HP: ${player_HP}`;
-        Dis_Player_ATK.innerHTML = `ATK: ${player_ATK}`;
-        Dis_Player_DEF.innerHTML = `DEF:   ${player_DEF}`;
-
 
     },100);
 
