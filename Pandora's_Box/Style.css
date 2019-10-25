@@ -33,6 +33,16 @@ header > h1 {
 .option-Buttons:hover {background-color: #404040}
 .option-Buttons:active {background-color: #303030;  box-shadow: 0 5px #666; transform: translateY(4px);}
 
+#Options_Panel{display: none;}
+
+#Start_Button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+#Title {display: none; opacity: 0%;}
+
 #Inventory_Panel {
   background-color: #555555;
   color: #ffffff;
@@ -56,6 +66,21 @@ header > h1 {
   top: 128px;
   position: absolute;
   width: 128px;
+  padding-bottom: 4px;
+  text-align: center;
+  border: 3px solid #444444;
+  border-radius: 6px;
+}
+
+#Combat_Panel{
+  background-color: #555555;
+  color: #ffffff;
+  display: none;
+  height: auto;
+  left: 50%;
+  top: 25%;
+  position: absolute;
+  width: auto;
   padding-bottom: 4px;
   text-align: center;
   border: 3px solid #444444;
@@ -103,7 +128,7 @@ header > h1 {
 .unlockable {display: none;}
 
 .Currency{
-  display: inline-block;
+  display: none;
   float: right;
   margin-top: 16px;
   text-align: right;
@@ -113,7 +138,7 @@ header > h1 {
 .Currency > #Dis_Gold {color: #FFD700;}
 
 .Stats{
-  display: inline-block;
+  display: none;
   float: right;
   margin-top: 16px;
   margin-right: 16px;
@@ -128,9 +153,10 @@ header > h1 {
   top: 16px;
   right: 8px;
   background-color: black;
-  display: block;
+  display: none;
   width: 128px;
   height: 32px;
+  border-radius: 20%;
 }
 
 #Dis_Player_Health_Bar {
@@ -138,4 +164,47 @@ header > h1 {
   display: block;
   width: 100%;
   height: 32px;
+  border: 2px solid #000000;
+  border-radius: 20%;
+}
+
+#Enemy_Health_Panel {
+  background-color: black;
+  display: none;
+  width: 128px;
+  height: 16px;
+  border-radius: 20%;
+}
+
+#Dis_Enemy_Health_Bar {
+  background-color: red;
+  display: block;
+  width: 100%;
+  height: 16px;
+  border: 2px solid #000000;
+  border-radius: 20%;
+}
+
+#Player_HP_Text{
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  color: white;
+  z-index: 1;
+}
+
+#Enemy_HP_Text{
+  position: absolute;
+  left: 25%;
+  color: white;
+  z-index: 1;
+}
+
+.Combat-Buttons {
+  display: inline-block;
+}
+
+#Combat_Message {
+  opacity: 1;
+  transition: 2s opacity;
 }
