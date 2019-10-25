@@ -7,11 +7,15 @@
     <!--LINK is used to connect to an outsite file, a css file in this case -->
     <link rel="stylesheet" href="Style.css">
   </head>
+
   <body>
 
     <!---Page Title--->
     <header>
-      <h1>Pandora's Box</h1>
+      <h1 id="Title" >Pandora's Box</h1>
+
+      <!-- Start -->
+      <button id="Start_Button" onclick="Start()" class="option-Buttons" >Start Game</button>
 
       <!-- Currency Display -->
       <div id="Currency_Panel" class="Currency">
@@ -29,18 +33,21 @@
 
       <!-- Player Health Bar-->
       <div id="Health_Panel">
-        <p id= "Dis_Player_Health_Bar"></p>
+        <p id="Player_HP_Text"></p>
+        <div id= "Dis_Player_Health_Bar"></div>
       </div>
+
     </header>
 
         <!---------------------------->
       <!---OPTION-BUTTONS SECTION--->
     <!---------------------------->
 
-    <div>
+    <div id="Options_Panel">
       <button id=Pandora's_Box_Button  onclick="TO-BE-DETERMINED"   class="option-Buttons">Pandora's Box</button>
       <button id=Inventory_Button     onclick="Inventory();"        class="option-Buttons">Inventory</button>
       <button id=Store_Button         onclick="Store();"            class="option-Buttons">Store</button>
+      <button id=Combat_Button        onclick="Combat();"           class="option-Buttons">Combat</button>
       <button id=Debug_Button         onclick="Debug();"            class="option-Buttons">Debug</button>
     </div>
 
@@ -97,6 +104,28 @@
     </div>
 
 
+
+            <!------------------->
+          <!---COMBAT SECTION--->
+        <!------------------->
+
+        <div id = Combat_Panel>
+            <h3>Fight:</h3>
+            <!--Enemy Health Bar-->
+            <h4 id="Enemy_Name"></h4>
+
+            <div id="Enemy_Health_Panel">
+              <p id="Enemy_HP_Text"></p>
+              <div id= "Dis_Enemy_Health_Bar"></div>
+            </div>
+
+            <button id=Find_Enemy_Button onclick="Search()" class="Combat-Buttons">Search</button>
+            <button id=Attack_Button onclick="Attack()"     class="Combat-Buttons">Attack</button>
+
+            <p id="Combat_Message"></p>
+        </div>
+
+
         <!------------------->
       <!---Debug SECTION--->
     <!------------------->
@@ -110,6 +139,9 @@
 
 
 <!-- Javascript import section -->
+    <script src="JavaScript/Combat.js"           charset="utf-8"></script>
+    <script src="JavaScript/Enemies.js"         charset="utf-8"></script>
+    <script src="JavaScript/Intro.js"           charset="utf-8"></script>
     <script src="JavaScript/Constants.js"       charset="utf-8"></script>
     <script src="JavaScript/Items.js"           charset="utf-8"></script>
     <script src="JavaScript/Option_Buttons.js"  charset="utf-8"></script>
