@@ -56,10 +56,8 @@ const dis_player_HP = document.getElementById("Dis_Player_HP");
 const dis_player_ATK = document.getElementById("Dis_Player_ATK");
 const dis_player_DEF = document.getElementById("Dis_Player_DEF");
 
-const player_health_bar = document.getElementById("Dis_Player_Health_Bar")
+const player_health_bar = document.getElementById("Player_Health_Bar")
 
 ////////////////////////
 ////ENEMY CONSTANTS////
 //////////////////////
-
-const enemy_health_bar = document.getElementById("Dis_Enemy_Health_Bar")
