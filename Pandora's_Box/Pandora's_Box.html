@@ -26,17 +26,9 @@
 
       <!-- Player Stats Display -->
       <div id="Stat_Panel" class="Stats">
-        <p id= "Dis_Player_HP"></p>
-        <p id= "Dis_Player_ATK"></p>
-        <p id= "Dis_Player_DEF"></p>
+        <p id= "Dis_Player_ATK">ATK: 1</p>
+        <p id= "Dis_Player_DEF">DEF: 1</p>
       </div>
-
-      <!-- Player Health Bar-->
-      <div id="Health_Panel">
-        <p id="Player_HP_Text"></p>
-        <div id= "Dis_Player_Health_Bar"></div>
-      </div>
-
     </header>
 
         <!---------------------------->
@@ -111,16 +103,31 @@
 
         <div id = Combat_Panel>
             <h3>Fight:</h3>
-            <!--Enemy Health Bar-->
-            <h4 id="Enemy_Name"></h4>
 
-            <div id="Enemy_Health_Panel">
-              <p id="Enemy_HP_Text"></p>
-              <div id= "Dis_Enemy_Health_Bar"></div>
+            <!-- Player Health Bar-->
+            <div id="Player_Combat_Panel">
+              <h4 id="Player_Name" class="Names"></h4>
+              <div id="Health_Panel">
+                <p id="Player_HP_Text">HP: 10 / 10</p>
+                <div id= "Player_Health_Bar"></div>
+              </div>
             </div>
 
-            <button id=Find_Enemy_Button onclick="Search()" class="Combat-Buttons">Search</button>
-            <button id=Attack_Button onclick="Attack()"     class="Combat-Buttons">Attack</button>
+
+            <!--Enemy Health Bar-->
+            <div id="Enemy_Combat_Panel">
+              <h4 id="Enemy_Name" class="Names"></h4>
+              <div id="Enemy_Health_Panel">
+                <p id="Enemy_HP_Text"></p>
+                <p id= "Enemy_Health_Bar"></p>
+              </div>
+            </div>
+
+
+            <div class="Combat-Buttons">
+            <button id=Find_Enemy_Button onclick="Search()">Search</button>
+            <button id=Attack_Button onclick="Attack()"    >Attack</button>
+            </div>
 
             <p id="Combat_Message"></p>
         </div>
