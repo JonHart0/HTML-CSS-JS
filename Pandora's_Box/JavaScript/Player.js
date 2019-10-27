@@ -3,7 +3,7 @@
 ////////////
 
 //####NEED TO FIX, Make current values initialize from base values####////
-var player = {Base_HP: 10, Base_ATK: 1, Base_DEF:1, Current_HP: 10, Current_ATK: 1, Current_DEF: 1}
+var player = {Max_HP: 10, Base_HP_Regen: 1, Base_ATK: 1, Base_DEF:1, HP: 10, ATK: 1, DEF: 1, InCombat: "False"}
 
 
 //Used to remove the item equipped from the equipped arrays
@@ -20,22 +20,21 @@ var items_ATK = 0;
 
 
 function Player_Health_Change() {
-  if (player.Current_HP <= 0) {
+  if (player.HP <= 0) {
     location.reload();
   }
-  if (player.Current_HP >= player.Base_HP) {
-    console.log("Full Health!")
-    player.Current_HP = player.Base_HP;
+  if (player.HP >= player.Max_HP) {
+    player.HP = player.Max_HP;
   }
-  player_health_bar.style.width = ((player.Current_HP / player.Base_HP) *100) + "%";
-  Player_HP_Text.innerHTML = `HP: ${player.Current_HP} / ${player.Base_HP}`
+  Player_Health_Bar.style.width = ((player.HP / player.Max_HP) *100) + "%";
+  Player_HP_Text.innerHTML = `HP: ${player.HP} / ${player.Max_HP}`
 }
 
 
 
 
 function Player_Update() {
-  player.Base_HP  = 10;
+  player.Max_HP  = 10;
   player.Base_ATK  = 1;
   player.Base_DEF  = 1;
 
@@ -43,9 +42,20 @@ function Player_Update() {
   items_DEF   = Armor_List[equipped_armor.selectedIndex].DEF + Weapon_List[equipped_weapon.selectedIndex].DEF;
   items_ATK   = Armor_List[equipped_armor.selectedIndex].ATK + Weapon_List[equipped_weapon.selectedIndex].ATK;
 
-  player.Current_ATK = player.Base_ATK + items_ATK;
-  player.Current_DEF = player.Base_DEF + items_DEF;
+  player.ATK = player.Base_ATK + items_ATK;
+  player.DEF = player.Base_DEF + items_DEF;
 
-  Dis_Player_ATK.innerHTML = `ATK: ${player.Current_ATK}`;
-  Dis_Player_DEF.innerHTML = `DEF:   ${player.Current_DEF}`;
+  Dis_Player_ATK.innerHTML = `ATK: ${player.ATK}`;
+  Dis_Player_DEF.innerHTML = `DEF:   ${player.DEF}`;
 }
+
+function Player_Regen() {
+  if (player.HP < player.Max_HP && player.InCombat == "False") {
+    Player_Health_Bar.style.backgroundColor = "#EE0000"
+    player.HP += player.Base_HP_Regen;
+    Player_Health_Change()
+    window.setTimeout(function(){Player_Health_Bar.style.backgroundColor = "#CC0000"}, 300)
+  }
+}
+
+setInterval(function() {Player_Regen()}, 5000);
