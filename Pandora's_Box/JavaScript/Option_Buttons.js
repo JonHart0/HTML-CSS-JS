@@ -8,7 +8,7 @@ const debug_panel_press = document.getElementById("Debug_Panel");
 ////Show-Hide panel functions////
 ////////////////////////////////
 
-//Swap the Inventory panel from .display: none; to .dispaly: block
+//Swap the Inventory panel from .display: none; to .display: block
 function Inventory() {
     if (inventory_panel_press.style.display === "block") {
         inventory_panel_press.style.display = "none";
@@ -17,7 +17,7 @@ function Inventory() {
     }
 }
 
-//Swap the Store panel from .display: none; to .dispaly: block
+//Swap the Store panel from .display: none; to .display: block
 function Store() {
     if (store_panel_press.style.display === "block") {
         store_panel_press.style.display = "none";
@@ -51,8 +51,6 @@ function Debug() {
 
 function Beg() {
     copper += 100;
-      console.log(player)
-      console.log(player.Current_HP)
 }
 
 function Take() {
@@ -62,11 +60,11 @@ function Take() {
 }
 
 function Heal_Player() {
-  player.Current_HP += 1;
+  player.HP += 1;
   Player_Health_Change()
 }
 
 function Damage_Player() {
-  player.Current_HP -= 1;
+  player.HP -= 1;
   Player_Health_Change()
 }
