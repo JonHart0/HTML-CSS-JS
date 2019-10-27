@@ -2,30 +2,53 @@
 ////Finding Enemies////
 //////////////////////
 
-//Function to find the text target, currently not randomized
-//copies selected enemies stats into a holding varaible 'current_Enemy'
+
 function Search() {
-search_number = (Math.floor(Math.random()*2.99));
-  switch (search_number) {
-    case 0:
-    Random_Enemy(zone_one_enemies)
+encounter_index = Encounters();
+console.dir(encounter_index)
+  switch (encounter_index){
+    case '0':
+    enemy = Weighted_Zone_Spawn(zone_one_enemies);
     Enemy_Found(enemy)
       break;
 
-    case 1:
+    case '1':
     Combat_Message.innerHTML = "Found 10 Copper!"
-    window.setTimeout(function(){Combat_Message.innerHTML = ''}, 1000);
+    window.setTimeout(function(){Combat_Message.innerHTML = ''}, 2000);
     copper += 10;
       break;
 
-    case 2:
+    case '2':
     Combat_Message.innerHTML = "Nothing Found"
-    window.setTimeout(function(){Combat_Message.innerHTML = ''}, 1000);
+    window.setTimeout(function(){Combat_Message.innerHTML = ''}, 2000);
       break;
   }
-
 }
 
+function Encounters() {
+  //0: Enemy, 1:Money, 2:Nothing
+  var search_encounters = {0: 0.5, 1: 0.1, 2: 0.4}
+  let i = 0, prob=0, random=Math.random();
+  for (i in search_encounters) {
+   prob += search_encounters[i];
+   if (random <= prob) {return i; }
+  }
+}
+
+//Checks the probability of the first array element and compares it to the random number generated.
+//if that random number is lessthan or equal to that probability, return the corresponding array selectedIndex
+//continue through array until random number is lessthan or equal to (probabilty sums to 1 which is upper limit of Math.random())
+function Weighted_Zone_Spawn(zone) {
+  let i, spawn_rate = [];
+  for (i in zone){
+    spawn_rate[i] = zone[i].Spawn_Rate
+  }
+  let j, total_prob=0, random=Math.random();
+  for (j in spawn_rate) {
+    total_prob += spawn_rate[j];
+    if (random <= total_prob) return zone[j];
+  }
+}
 
 /////////////////////////
 ////Fighting Enemies////
@@ -61,7 +84,7 @@ function Enemy_Dead() {
 
   player.InCombat = "False";
   Find_Enemy_Button.style.display = "inline-block"
-  window.setTimeout(function(){Combat_Message.innerHTML = ''}, 1000); }
+  window.setTimeout(function(){Combat_Message.innerHTML = ''}, 2000); }
 }
 
 function Enemy_Found(enemy) {
@@ -80,12 +103,6 @@ function Enemy_Found(enemy) {
   Enemy_Name.title = current_Enemy.Description; //Change the hover text on the name of the enemy
 }
 
-function Random_Enemy(zone) {
- enemy_number = (Math.floor(Math.random()*2.99));
- console.log(enemy_number)
- enemy = zone[enemy_number]
- return enemy;
-}
 
 function Enemy_Reward(enemy) {
   switch (enemy.Reward_Type) {
@@ -98,6 +115,5 @@ function Enemy_Reward(enemy) {
     case "Gold":
       gold += enemy.Reward_Amount;
       break;
-
   }
 }
