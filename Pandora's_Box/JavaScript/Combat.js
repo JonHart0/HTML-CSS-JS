@@ -5,7 +5,6 @@
 
 function Search() {
 encounter_index = Encounters();
-console.dir(encounter_index)
   switch (encounter_index){
     case '0':
     enemy = Weighted_Zone_Spawn(zone_one_enemies);
@@ -54,16 +53,21 @@ function Weighted_Zone_Spawn(zone) {
 ////Fighting Enemies////
 ///////////////////////
 
+function Enemy_ATK() {
+  if ((current_Enemy.ATK - player.DEF) <= 0) {player.HP -= 0}
+  else {player.HP -= (current_Enemy.ATK - player.DEF);}
+}
+
+function Player_ATK() {
+  if ((player.ATK - current_Enemy.DEF) <= 0) {current_Enemy.HP -= 0}
+  else {current_Enemy.HP -= (player.ATK - current_Enemy.DEF);}
+}
 //If target has more than 0 HP subtract HP from enemy and update visuals
 //If target has 0 or less HP reveal search button and update attack visual
 function Attack() {
   if (current_Enemy.HP > 0) {
-
-    if ((player.ATK - current_Enemy.DEF) <= 0) {current_Enemy.HP -= 0}
-    else {current_Enemy.HP -= (player.ATK - current_Enemy.DEF);}
-
-    if ((current_Enemy.ATK - player.DEF) <= 0) {player.HP -= 0}
-    else {player.HP -= (current_Enemy.ATK - player.DEF);}
+    Player_ATK()
+    Enemy_ATK()
 
     Enemy_Health_Bar.style.width = ((current_Enemy.HP / current_Enemy.Max_HP) *100) + "%";
     Enemy_HP_Text.innerHTML = `HP: ${current_Enemy.HP} / ${current_Enemy.Max_HP}`
@@ -73,23 +77,15 @@ function Attack() {
   if (current_Enemy.HP <= 0) {
     Enemy_Dead()
     Enemy_Reward(enemy)
-}
-
-
-function Enemy_Dead() {
-  Enemy_HP_Text.innerHTML = "Dead"
-  Combat_Message.innerHTML = "Target Dead"
-  Enemy_Name.style.display = "none"; //Hides the Enemies name plate
-  Enemy_Health_Bar.style.display = "none"; //Hides the enemies health bar
-
-  player.InCombat = "False";
-  Find_Enemy_Button.style.display = "inline-block"
-  window.setTimeout(function(){Combat_Message.innerHTML = ''}, 2000); }
+  }
 }
 
 function Enemy_Found(enemy) {
   player.InCombat = "True";
   current_Enemy = Object.assign({}, enemy)
+
+  Attack_Button.style.display = "block";
+  Run_Button.style.display = "block";
 
   Enemy_Name.innerHTML = current_Enemy.Name;
   Enemy_Name.style.display = "block";
@@ -98,9 +94,25 @@ function Enemy_Found(enemy) {
   Enemy_Health_Bar.style.width = 100 + "%";
   Enemy_Health_Bar.style.display = "block";
 
+  Run_Button.title = `${(current_Enemy.Esc_Rate)*100}%`
+
   Enemy_HP_Text.innerHTML = `HP: ${current_Enemy.HP} / ${current_Enemy.Max_HP}`
   Find_Enemy_Button.style.display = "none";
   Enemy_Name.title = current_Enemy.Description; //Change the hover text on the name of the enemy
+}
+
+function Enemy_Dead() {
+  Enemy_HP_Text.innerHTML = "Dead"
+  Combat_Message.innerHTML = "Target Dead"
+  Enemy_Name.style.display = "none"; //Hides the Enemies name plate
+  Enemy_Health_Bar.style.display = "none"; //Hides the enemies health bar
+
+  Attack_Button.style.display = "none";
+  Run_Button.style.display = "none";
+
+  player.InCombat = "False";
+  Find_Enemy_Button.style.display = "inline-block"
+  window.setTimeout(function(){Combat_Message.innerHTML = ''}, 2000);
 }
 
 
@@ -115,5 +127,20 @@ function Enemy_Reward(enemy) {
     case "Gold":
       gold += enemy.Reward_Amount;
       break;
+  }
+}
+
+
+function Run() {
+  esc_random = Math.random()
+  console.log(esc_random)
+  console.log(current_Enemy.Esc_Rate)
+  if (esc_random <= current_Enemy.Esc_Rate) {
+    Enemy_Dead()
+    Enemy_HP_Text.innerHTML = "Escaped"
+    Combat_Message.innerHTML = "You got away!"
+  } else {
+    Enemy_ATK()
+    Player_Health_Change()
   }
 }

@@ -136,7 +136,7 @@ header > h1 {
   background-color: #555555;
   color: #ffffff;
   display: none;
-  height: 128px;
+  height: 150px;
   left: 25%;
   top: 25%;
   position: absolute;
@@ -221,12 +221,18 @@ header > h1 {
 }
 #Find_Enemy_Button{
   position: absolute;
-   bottom: 8px;
-    left: 32px}
+   bottom: 32px;
+    left: 32px;}
 #Attack_Button{
   position: absolute;
    bottom: 8px;
-    left: 88px}
+    left: 32px;
+  display: none; }
+#Run_Button{
+  position: absolute;
+   bottom: 8px;
+    left: 88px;
+  display: none; }
 
 #Combat_Message {
   opacity: 1;
