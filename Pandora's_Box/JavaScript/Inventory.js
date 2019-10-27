@@ -45,7 +45,7 @@ function Currency_Conversion() {
     }
 }
 
-setInterval(function() {Currency_Conversion()}, 1000);
+setInterval(function() {Currency_Conversion()}, 1);
 
 ////////////////////////
 ////Inventory Items////
