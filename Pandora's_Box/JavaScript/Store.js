@@ -115,22 +115,22 @@ if (cost_array[0] >0 && cost_array[1] > 0 & cost_array[2] > 0) {
 function Currency_Check() {
 
 //STICK SWORD
-  Currency_Check_Display_Weapon(purchase_stick_sword_button_press,stick_sword_Item.Cost,stick_sword_Item.Slot);
+  Currency_Check_Display_Weapon(Purchase_Stick_Sword_Button,stick_sword_Item.Cost,stick_sword_Item.Slot);
 
 //WOODEN SWORD
-  Currency_Check_Display_Weapon(purchase_wooden_sword_button_press,wooden_sword_Item.Cost,wooden_sword_Item.Slot);
+  Currency_Check_Display_Weapon(Purchase_Wooden_Sword_Button,wooden_sword_Item.Cost,wooden_sword_Item.Slot);
 
 //COPPER SWORD
-  Currency_Check_Display_Weapon(purchase_copper_sword_button_press,copper_sword_Item.Cost,copper_sword_Item.Slot);
+  Currency_Check_Display_Weapon(Purchase_Copper_Sword_Button,copper_sword_Item.Cost,copper_sword_Item.Slot);
 
 //BARK CHEST
-  Currency_Check_Display_Armor(purchase_bark_chest_button_press,bark_chest_Item.Cost,bark_chest_Item.Slot);
+  Currency_Check_Display_Armor(Purchase_Bark_Chest_Button,bark_chest_Item.Cost,bark_chest_Item.Slot);
 
 //WOODEN CHEST
-  Currency_Check_Display_Armor(purchase_wooden_chest_button_press,wooden_chest_Item.Cost,wooden_chest_Item.Slot);
+  Currency_Check_Display_Armor(Purchase_Wooden_Chest_Button,wooden_chest_Item.Cost,wooden_chest_Item.Slot);
 
 //COPPER CHEST
-  Currency_Check_Display_Armor(purchase_copper_chest_button_press,copper_chest_Item.Cost,copper_chest_Item.Slot);
+  Currency_Check_Display_Armor(Purchase_Copper_Chest_Button,copper_chest_Item.Cost,copper_chest_Item.Slot);
 }
 
 

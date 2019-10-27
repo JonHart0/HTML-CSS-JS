@@ -10,36 +10,36 @@ const debug_panel_press = document.getElementById("Debug_Panel");
 
 //Swap the Inventory panel from .display: none; to .display: block
 function Inventory() {
-    if (inventory_panel_press.style.display === "block") {
-        inventory_panel_press.style.display = "none";
+    if (Inventory_Panel.style.display === "block") {
+        Inventory_Panel.style.display = "none";
     } else {
-        inventory_panel_press.style.display = "block";
+        Inventory_Panel.style.display = "block";
     }
 }
 
 //Swap the Store panel from .display: none; to .display: block
 function Store() {
-    if (store_panel_press.style.display === "block") {
-        store_panel_press.style.display = "none";
+    if (Store_Panel.style.display === "block") {
+        Store_Panel.style.display = "none";
     } else {
-        store_panel_press.style.display = "block";
+        Store_Panel.style.display = "block";
     }
 }
 
 function Combat() {
-    if (combat_panel_press.style.display === "block") {
-        combat_panel_press.style.display = "none";
+    if (Combat_Panel.style.display === "block") {
+        Combat_Panel.style.display = "none";
     } else {
-        combat_panel_press.style.display = "block";
+        Combat_Panel.style.display = "block";
     }
 }
 
 
 function Debug() {
-    if (debug_panel_press.style.display === "block") {
-        debug_panel_press.style.display = "none";
+    if (Debug_Panel.style.display === "block") {
+        Debug_Panel.style.display = "none";
     } else {
-        debug_panel_press.style.display = "block";
+        Debug_Panel.style.display = "block";
     }
 }
 

@@ -55,7 +55,7 @@
 
               <p>Weapon: <img id="Current_Weapon_Image" src="images/Empty_Handed.png"></p>
 
-                <select  id="Equipped_Weapon"      onchange= Equip_Weapon_Select(equipped_weapon) >
+                <select  id="Equipped_Weapon"      onchange= Equip_Weapon_Select(Equipped_Weapon) >
                   <option id="Empty_Handed"        selected            >Empty Handed</option>
                   <option id="Stick_Sword"         class="unlockable"  >Stick</option>
                   <option id="Wooden_Sword"        class="unlockable"  >Wooden Sword </option>
@@ -67,7 +67,7 @@
 
               <p>Armor: <img id="Current_Armor_Image" src="images/Bare_Chest.png" ></p>
 
-              <select id="Equipped_Armor"    onchange= Equip_Armor_Select(equipped_armor)>
+              <select id="Equipped_Armor"    onchange= Equip_Armor_Select(Equipped_Armor)>
                 <option id="Bare_Chest"      selected            >Bare Chest   </option>
                 <option id="Bark_Chest"      class="unlockable"  >Bark Chest   </option>
                 <option id="Wooden_Chest"    class="unlockable"  >Wooden Chest </option>
@@ -146,11 +146,10 @@
 
 
 <!-- Javascript import section -->
-    <script src="JavaScript/Combat.js"           charset="utf-8"></script>
-    <script src="JavaScript/Enemies.js"         charset="utf-8"></script>
-    <script src="JavaScript/Intro.js"           charset="utf-8"></script>
-    <script src="JavaScript/Constants.js"       charset="utf-8"></script>
     <script src="JavaScript/Items.js"           charset="utf-8"></script>
+    <script src="JavaScript/Enemies.js"         charset="utf-8"></script>
+    <script src="JavaScript/Combat.js"           charset="utf-8"></script>
+    <script src="JavaScript/Intro.js"           charset="utf-8"></script>
     <script src="JavaScript/Option_Buttons.js"  charset="utf-8"></script>
     <script src="JavaScript/Inventory.js"       charset="utf-8"></script>
     <script src="JavaScript/Store.js"           charset="utf-8"></script>

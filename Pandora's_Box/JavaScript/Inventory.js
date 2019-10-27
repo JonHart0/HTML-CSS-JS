@@ -62,12 +62,10 @@ function Equip_Armor_Store(Equip) {
     equipped_armor_array[last_armor_equipped] = 0;
     last_armor_equipped = Equip.Slot;
     equipped_armor_array[Equip.Slot] = 1;
-    equipped_armor.selectedIndex = Equip.Slot;
-    current_armor_image.src = Equip.Image;
-    equipped_armor.title = Equip.Description;
+    Equipped_Armor.selectedIndex = Equip.Slot;
+    Current_Armor_Image.src = Equip.Image;
+    Equipped_Armor.title = Equip.Description;
     Equip.Drop.title = Equip.Stats;
-    console.log(armor_array);
-    console.log(equipped_armor_array);
     Player_Update()
 
   }
@@ -75,23 +73,19 @@ function Equip_Weapon_Store(Equip) {
     equipped_weapon_array[last_weapon_equipped] = 0;
     last_weapon_equipped = Equip.Slot;
     equipped_weapon_array[Equip.Slot] = 1;
-    equipped_weapon.selectedIndex = Equip.Slot;
-    current_weapon_image.src = Equip.Image;
-    equipped_weapon.title = Equip.Description;
+    Equipped_Weapon.selectedIndex = Equip.Slot;
+    Current_Weapon_Image.src = Equip.Image;
+    Equipped_Weapon.title = Equip.Description;
     Equip.Drop.title = Equip.Stats;
-    console.log(weapon_array);
-    console.log(equipped_weapon_array);
     Player_Update()
   }
 
 function Equip_Armor_Select(Equip) {
     equipped_armor_array[last_armor_equipped] = 0;
-    last_armor_equipped = equipped_armor.selectedIndex;
-    equipped_armor_array[equipped_armor.selectedIndex] = 1;
-    current_armor_image.src = Armor_List[equipped_armor.selectedIndex].Image;
-    equipped_armor.title = Armor_List[equipped_armor.selectedIndex].Description;
-    console.log(armor_array);
-    console.log(equipped_armor_array);
+    last_armor_equipped = Equipped_Armor.selectedIndex;
+    equipped_armor_array[Equipped_Armor.selectedIndex] = 1;
+    Current_Armor_Image.src = Armor_List[Equipped_Armor.selectedIndex].Image;
+    Equipped_Armor.title = Armor_List[Equipped_Armor.selectedIndex].Description;
     Player_Update()
   }
 
@@ -99,11 +93,9 @@ function Equip_Armor_Select(Equip) {
 
 function Equip_Weapon_Select(Equip) {
     equipped_weapon_array[last_weapon_equipped] = 0;
-    last_weapon_equipped = equipped_weapon.selectedIndex;
-    equipped_weapon_array[equipped_weapon.selectedIndex] = 1;
-    current_weapon_image.src = Weapon_List[equipped_weapon.selectedIndex].Image;
-    equipped_weapon.title = Weapon_List[equipped_weapon.selectedIndex].Description;
-    console.log(armor_array);
-    console.log(equipped_armor_array);
+    last_weapon_equipped = Equipped_Weapon.selectedIndex;
+    equipped_weapon_array[Equipped_Weapon.selectedIndex] = 1;
+    Current_Weapon_Image.src = Weapon_List[Equipped_Weapon.selectedIndex].Image;
+    Equipped_Weapon.title = Weapon_List[Equipped_Weapon.selectedIndex].Description;
     Player_Update();
     }

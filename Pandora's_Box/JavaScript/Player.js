@@ -39,8 +39,8 @@ function Player_Update() {
   player.Base_DEF  = 1;
 
 
-  items_DEF   = Armor_List[equipped_armor.selectedIndex].DEF + Weapon_List[equipped_weapon.selectedIndex].DEF;
-  items_ATK   = Armor_List[equipped_armor.selectedIndex].ATK + Weapon_List[equipped_weapon.selectedIndex].ATK;
+  items_DEF   = Armor_List[Equipped_Armor.selectedIndex].DEF + Weapon_List[Equipped_Weapon.selectedIndex].DEF;
+  items_ATK   = Armor_List[Equipped_Armor.selectedIndex].ATK + Weapon_List[Equipped_Weapon.selectedIndex].ATK;
 
   player.ATK = player.Base_ATK + items_ATK;
   player.DEF = player.Base_DEF + items_DEF;

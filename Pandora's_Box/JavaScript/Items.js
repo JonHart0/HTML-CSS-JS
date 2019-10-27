@@ -14,5 +14,5 @@ const Weapon_List = {0:empty_handed_Item, 1:stick_sword_Item, 2:wooden_sword_Ite
 empty_handed_Item.Drop.title = empty_handed_Item.Stats;
 bare_chest_Item.Drop.title = bare_chest_Item.Stats;
 
-equipped_weapon.title = empty_handed_Item.Description;
-equipped_armor.title = bare_chest_Item.Description;
+Equipped_Weapon.title = empty_handed_Item.Description;
+Equipped_Armor.title = bare_chest_Item.Description;
