@@ -1,9 +1,3 @@
-//Declare html constants to save processing power
-const store_panel_press = document.getElementById("Store_Panel");
-const inventory_panel_press = document.getElementById("Inventory_Panel");
-const combat_panel_press = document.getElementById("Combat_Panel")
-const debug_panel_press = document.getElementById("Debug_Panel");
-
 //////////////////////////////////
 ////Show-Hide panel functions////
 ////////////////////////////////
@@ -26,11 +20,11 @@ function Store() {
     }
 }
 
-function Combat() {
-    if (Combat_Panel.style.display === "block") {
-        Combat_Panel.style.display = "none";
+function Explore() {
+    if (Explore_Panel.style.display === "block") {
+        Explore_Panel.style.display = "none";
     } else {
-        Combat_Panel.style.display = "block";
+        Explore_Panel.style.display = "block";
     }
 }
 

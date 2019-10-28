@@ -133,8 +133,6 @@ function Enemy_Reward(enemy) {
 
 function Run() {
   esc_random = Math.random()
-  console.log(esc_random)
-  console.log(current_Enemy.Esc_Rate)
   if (esc_random <= current_Enemy.Esc_Rate) {
     Enemy_Dead()
     Enemy_HP_Text.innerHTML = "Escaped"

@@ -141,8 +141,7 @@ function Currency_Check_Display_Armor(Purchase_Button_Press,Item_Cost,Item_Numbe
           Purchase_Button_Press.style.backgroundColor = '#006000';
       }else{Purchase_Button_Press.style.backgroundColor = '#700000';
      }
-  }else{Purchase_Button_Press.className = 'store-items-purchased';
-        Purchase_Button_Press.style.backgroundColor = '#202020';}
+  }else{Purchase_Button_Press.style.backgroundColor = '#202020';}
 }
 
 function Currency_Check_Display_Weapon(Purchase_Button_Press,Item_Cost,Item_Number) {
@@ -152,8 +151,7 @@ function Currency_Check_Display_Weapon(Purchase_Button_Press,Item_Cost,Item_Numb
           Purchase_Button_Press.style.backgroundColor = '#006000';
       }else{Purchase_Button_Press.style.backgroundColor = '#700000';
      }
-  }else{Purchase_Button_Press.className = 'store-items-purchased';
-        Purchase_Button_Press.style.backgroundColor = '#202020';}
+  }else{Purchase_Button_Press.style.backgroundColor = '#202020';}
 }
 
 

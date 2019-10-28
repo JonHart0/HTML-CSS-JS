@@ -18,14 +18,14 @@
       <button id="Start_Button" onclick="Start()" class="option-Buttons" >Start Game</button>
 
       <!-- Currency Display -->
-      <div id="Currency_Panel" class="Currency">
+      <div id="Currency_Panel">
         <p id= "Dis_Copper"></p>
         <p id= "Dis_Silver"></p>
         <p id= "Dis_Gold"></p>
       </div>
 
       <!-- Player Stats Display -->
-      <div id="Stat_Panel" class="Stats">
+      <div id="Stat_Panel">
         <p id= "Dis_Player_ATK">ATK: 1</p>
         <p id= "Dis_Player_DEF">DEF: 1</p>
       </div>
@@ -36,10 +36,9 @@
     <!---------------------------->
 
     <div id="Options_Panel">
-      <button id=Pandora's_Box_Button  onclick="TO-BE-DETERMINED"   class="option-Buttons">Pandora's Box</button>
       <button id=Inventory_Button     onclick="Inventory();"        class="option-Buttons">Inventory</button>
       <button id=Store_Button         onclick="Store();"            class="option-Buttons">Store</button>
-      <button id=Combat_Button        onclick="Combat();"           class="option-Buttons">Combat</button>
+      <button id=Explore_Button       onclick="Explore();"          class="option-Buttons">Combat</button>
       <button id=Debug_Button         onclick="Debug();"            class="option-Buttons">Debug</button>
     </div>
 
@@ -47,31 +46,31 @@
       <!---INVENTORY SECTION--->
     <!----------------------->
 
-    <div id = Inventory_Panel>
+    <div id = Inventory_Panel class="panel">
 
-        <h3>Inventory:</h3>
+        <h3 class="Panel-Header">Inventory:</h3>
 
-            <div id="Weapons" class="Weapons">
+            <div id="Weapons" class="weapons">
 
               <p>Weapon: <img id="Current_Weapon_Image" src="images/Empty_Handed.png"></p>
 
-                <select  id="Equipped_Weapon"      onchange= Equip_Weapon_Select(Equipped_Weapon) >
-                  <option id="Empty_Handed"        selected            >Empty Handed</option>
-                  <option id="Stick_Sword"         class="unlockable"  >Stick</option>
-                  <option id="Wooden_Sword"        class="unlockable"  >Wooden Sword </option>
-                  <option id="Copper_Sword"        class="unlockable"  >Copper Sword </option>
+                <select  id="Equipped_Weapon"     onchange= Equip_Weapon_Select(Equipped_Weapon) class="equipped-items" >
+                  <option id="Empty_Handed"       selected          >Empty Handed</option>
+                  <option id="Stick_Sword"        class="unlockable" >Stick       </option>
+                  <option id="Wooden_Sword"       class="unlockable" >Wooden Sword</option>
+                  <option id="Copper_Sword"       class="unlockable" >Copper Sword</option>
                 </select>
             </div>
 
-            <div id=Armor class="Armor">
+            <div id=Armor class="armor">
 
               <p>Armor: <img id="Current_Armor_Image" src="images/Bare_Chest.png" ></p>
 
-              <select id="Equipped_Armor"    onchange= Equip_Armor_Select(Equipped_Armor)>
-                <option id="Bare_Chest"      selected            >Bare Chest   </option>
-                <option id="Bark_Chest"      class="unlockable"  >Bark Chest   </option>
-                <option id="Wooden_Chest"    class="unlockable"  >Wooden Chest </option>
-                <option id="Copper_Chest"    class="unlockable"  >Copper Chest </option>
+              <select id="Equipped_Armor"    onchange= Equip_Armor_Select(Equipped_Armor) class="equipped-items">
+                <option id="Bare_Chest"      selected             >Bare Chest   </option>
+                <option id="Bark_Chest"        class="unlockable" >Bark Chest   </option>
+                <option id="Wooden_Chest"      class="unlockable" >Wooden Chest </option>
+                <option id="Copper_Chest"      class="unlockable" >Copper Chest </option>
               </select>
             </div>
     </div>
@@ -80,8 +79,8 @@
       <!---STORE SECTION--->
     <!------------------->
 
-    <div id = Store_Panel>
-        <h3>Store:</h3>
+    <div id = Store_Panel class="panel">
+        <h3 class="Panel-Header">Store:</h3>
 
         <!--Weapon Buttons in Store-->
             <button id = Purchase_Stick_Sword_Button    onclick="Purchase_Item_Weapon(stick_sword_Item)"    class="store-items">Just A Stick</button>
@@ -98,15 +97,15 @@
 
 
             <!------------------->
-          <!---COMBAT SECTION--->
+          <!---Explore SECTION--->
         <!------------------->
 
-        <div id = Combat_Panel>
-            <h3>Fight:</h3>
+        <div id = Explore_Panel class="panel">
+            <h3 class="panel-header">Explore:</h3>
 
             <!-- Player Health Bar-->
             <div id="Player_Combat_Panel">
-              <h4 id="Player_Name" class="Names"></h4>
+              <h4 id="Player_Name" class="names"></h4>
               <div id="Health_Panel">
                 <p id="Player_HP_Text">HP: 10 / 10</p>
                 <div id= "Player_Health_Bar"></div>
@@ -116,7 +115,7 @@
 
             <!--Enemy Health Bar-->
             <div id="Enemy_Combat_Panel">
-              <h4 id="Enemy_Name" class="Names"></h4>
+              <h4 id="Enemy_Name" class="names"></h4>
               <div id="Enemy_Health_Panel">
                 <p id="Enemy_HP_Text"></p>
                 <p id= "Enemy_Health_Bar"></p>

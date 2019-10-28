@@ -1,7 +1,7 @@
 //Currency
 var copper  = 0;
 var silver  = 0;
-var gold    = 0;
+var gold    = 1;
 
 var copper_value = 1;
 var silver_value = 100;
