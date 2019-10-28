@@ -6,9 +6,9 @@ Stat_Panel.style.display = "inline-block"
 Start_Button.style.display = "none"
 Player_Name.innerHTML = "Player";
 
-Inventory_Panel.style.display = "block"
-Store_Panel.style.display = "block"
-Explore_Panel.style.display = "block"
-Debug_Panel.style.display = "block"
+Inventory_Panel.style.display = "none"
+Store_Panel.style.display = "none"
+Explore_Panel.style.display = "none"
+Debug_Panel.style.display = "none"
 }
 Start();

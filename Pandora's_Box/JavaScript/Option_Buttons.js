@@ -13,18 +13,27 @@ function Inventory() {
 
 //Swap the Store panel from .display: none; to .display: block
 function Store() {
-    if (Store_Panel.style.display === "block") {
-        Store_Panel.style.display = "none";
-    } else {
+    if (Store_Panel.style.display == "none" && Explore_Panel.style.display =="none") {
         Store_Panel.style.display = "block";
+        Explore_Button.style.display ="none";
+        Store_Button.innerHTML = "Leave Store"
+    } else {
+        Store_Panel.style.display = "none";
+        Explore_Button.style.display ="inline-block";
+        Store_Button.innerHTML = "Store"
+
     }
 }
 
 function Explore() {
-    if (Explore_Panel.style.display === "block") {
-        Explore_Panel.style.display = "none";
-    } else {
+    if (Explore_Panel.style.display =="none" && Store_Panel.style.display == "none") {
         Explore_Panel.style.display = "block";
+        Store_Button.style.display ="none";
+        Explore_Button.innerHTML = "Back to Town"
+    } else {
+        Explore_Panel.style.display = "none";
+        Store_Button.style.display ="inline-block";
+        Explore_Button.innerHTML = "Explore"
     }
 }
 

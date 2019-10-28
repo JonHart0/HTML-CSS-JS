@@ -16,19 +16,6 @@
 
       <!-- Start -->
       <button id="Start_Button" onclick="Start()" class="option-Buttons" >Start Game</button>
-
-      <!-- Currency Display -->
-      <div id="Currency_Panel">
-        <p id= "Dis_Copper"></p>
-        <p id= "Dis_Silver"></p>
-        <p id= "Dis_Gold"></p>
-      </div>
-
-      <!-- Player Stats Display -->
-      <div id="Stat_Panel">
-        <p id= "Dis_Player_ATK">ATK: 1</p>
-        <p id= "Dis_Player_DEF">DEF: 1</p>
-      </div>
     </header>
 
         <!---------------------------->
@@ -38,8 +25,8 @@
     <div id="Options_Panel">
       <button id=Inventory_Button     onclick="Inventory();"        class="option-Buttons">Inventory</button>
       <button id=Store_Button         onclick="Store();"            class="option-Buttons">Store</button>
-      <button id=Explore_Button       onclick="Explore();"          class="option-Buttons">Combat</button>
-      <button id=Debug_Button         onclick="Debug();"            class="option-Buttons">Debug</button>
+      <button id=Explore_Button       onclick="Explore();"          class="option-Buttons">Explore</button>
+      <button id=Debug_Button         onclick="Debug();"            >Debug</button>
     </div>
 
         <!----------------------->
@@ -72,6 +59,19 @@
                 <option id="Wooden_Chest"      class="unlockable" >Wooden Chest </option>
                 <option id="Copper_Chest"      class="unlockable" >Copper Chest </option>
               </select>
+            </div>
+
+            <!-- Currency Display -->
+            <div id="Currency_Panel">
+              <p id= "Dis_Copper"></p>
+              <p id= "Dis_Silver"></p>
+              <p id= "Dis_Gold"></p>
+            </div>
+
+            <!-- Player Stats Display -->
+            <div id="Stat_Panel">
+              <p id= "Dis_Player_ATK">ATK: 1</p>
+              <p id= "Dis_Player_DEF">DEF: 1</p>
             </div>
     </div>
 
@@ -106,9 +106,9 @@
             <!-- Player Health Bar-->
             <div id="Player_Combat_Panel">
               <h4 id="Player_Name" class="names"></h4>
-              <div id="Health_Panel">
-                <p id="Player_HP_Text">HP: 10 / 10</p>
-                <div id= "Player_Health_Bar"></div>
+              <div id="Health_Panel" class="health-panel">
+                <p id="Player_HP_Text" class="hp-text">HP: 10 / 10</p>
+                <div id= "Player_Health_Bar" class="health-bar"></div>
               </div>
             </div>
 
@@ -116,17 +116,17 @@
             <!--Enemy Health Bar-->
             <div id="Enemy_Combat_Panel">
               <h4 id="Enemy_Name" class="names"></h4>
-              <div id="Enemy_Health_Panel">
-                <p id="Enemy_HP_Text"></p>
-                <p id= "Enemy_Health_Bar"></p>
+              <div id="Enemy_Health_Panel" class="health-panel">
+                <p id="Enemy_HP_Text" class="hp-text"></p>
+                <p id= "Enemy_Health_Bar" class="health-bar"></p>
               </div>
             </div>
 
 
-            <div >
-            <button id=Find_Enemy_Button onclick="Search()">Search</button>
-            <button id=Attack_Button onclick="Attack()"    >Attack</button>
-            <button id="Run_Button"  onclick="Run()"       >Run</button>
+            <div id="Explore_Panel_Buttons">
+            <button id="Find_Enemy_Button" onclick="Search()" class="explore-Buttons">Search</button>
+            <button id="Attack_Button" onclick="Attack()"     class="explore-Buttons">Attack</button>
+            <button id="Run_Button"  onclick="Run()"        class="explore-Buttons">Run</button>
             </div>
 
             <p id="Combat_Message"></p>

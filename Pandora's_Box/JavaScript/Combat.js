@@ -84,8 +84,8 @@ function Enemy_Found(enemy) {
   player.InCombat = "True";
   current_Enemy = Object.assign({}, enemy)
 
-  Attack_Button.style.display = "block";
-  Run_Button.style.display = "block";
+  Attack_Button.style.display = "inline-block";
+  Run_Button.style.display = "inline-block";
 
   Enemy_Name.innerHTML = current_Enemy.Name;
   Enemy_Name.style.display = "block";
