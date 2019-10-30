@@ -24,8 +24,13 @@
 
     <div id="Options_Panel">
       <button id=Inventory_Button     onclick="Inventory();"        class="option-Buttons">Inventory</button>
-      <button id=Store_Button         onclick="Store();"            class="option-Buttons">Store</button>
       <button id=Explore_Button       onclick="Explore();"          class="option-Buttons">Explore</button>
+      <button id=Town_Button          onclick="Town();"             class="option-Buttons">Town</button>
+        <div id="Town_Panel">
+            <button id=Armory_Button        onclick="Armory();"           class="option-Buttons town-Buttons">Armory</button>
+            <button id=Apothecary_Button    onclick="Apothecary();"       class="option-Buttons town-Buttons">Apothecary</button>
+            <button id=Town_Inn_Button      onclick="Town_Inn();"         class="option-Buttons town-Buttons">Town Inn</button>
+          </div>
       <button id=Debug_Button         onclick="Debug();"            >Debug</button>
     </div>
 
@@ -68,33 +73,50 @@
               <p id= "Dis_Gold"></p>
             </div>
 
+            <!-- Player potion Display -->
+            <div id="Potion_Panel">
+              <p id= "Number_Potion">Potions: 0</p>
+            </div>
+
             <!-- Player Stats Display -->
             <div id="Stat_Panel">
-              <p id= "Dis_Player_ATK">ATK: 1</p>
-              <p id= "Dis_Player_DEF">DEF: 1</p>
+              <p id= "Dis_Player_ATK">Attack: 1</p>
+              <p id= "Dis_Player_DEF">Defense: 1</p>
             </div>
+
+
     </div>
 
         <!------------------->
-      <!---STORE SECTION--->
+      <!---Town SECTION--->
     <!------------------->
 
-    <div id = Store_Panel class="panel">
-        <h3 class="Panel-Header">Store:</h3>
+    <div id = Armory_Panel class="panel">
+        <h3 class="Panel-Header">Armory:</h3>
 
         <!--Weapon Buttons in Store-->
-            <button id = Purchase_Stick_Sword_Button    onclick="Purchase_Item_Weapon(stick_sword_Item)"    class="store-items">Just A Stick</button>
-            <button id = Purchase_Wooden_Sword_Button   onclick="Purchase_Item_Weapon(wooden_sword_Item)"   class="store-items">Wooden Sword</button>
-            <button id = Purchase_Copper_Sword_Button   onclick="Purchase_Item_Weapon(copper_sword_Item)"   class="store-items">Copper Sword</button>
+            <button id = Purchase_Stick_Sword_Button    onclick="Purchase_Item_Weapon(stick_sword_Item)"    class="armory-items">Just A Stick</button>
+            <button id = Purchase_Wooden_Sword_Button   onclick="Purchase_Item_Weapon(wooden_sword_Item)"   class="armory-items">Wooden Sword</button>
+            <button id = Purchase_Copper_Sword_Button   onclick="Purchase_Item_Weapon(copper_sword_Item)"   class="armory-items">Copper Sword</button>
 
 
        <!--Armor Buttons in Store-->
-            <button id = Purchase_Bark_Chest_Button     onclick="Purchase_Item_Armor(bark_chest_Item)"      class="store-items">Bark and Duct Tape</button>
-            <button id = Purchase_Wooden_Chest_Button   onclick="Purchase_Item_Armor(wooden_chest_Item)"    class="store-items">Wooden Chest</button>
-            <button id = Purchase_Copper_Chest_Button   onclick="Purchase_Item_Armor(copper_chest_Item)"    class="store-items">Copper Chest</button>
+            <button id = Purchase_Bark_Chest_Button     onclick="Purchase_Item_Armor(bark_chest_Item)"      class="armory-items">Bark and Duct Tape</button>
+            <button id = Purchase_Wooden_Chest_Button   onclick="Purchase_Item_Armor(wooden_chest_Item)"    class="armory-items">Wooden Chest</button>
+            <button id = Purchase_Copper_Chest_Button   onclick="Purchase_Item_Armor(copper_chest_Item)"    class="armory-items">Copper Chest</button>
     </div>
 
 
+    <div id="Apothecary_Panel" class="panel">
+        <h3>Apothecary:</h3>
+            <button id = Buy_Potion_Button   onclick="Buy_Potion()" title="1 Potion [50 copper]" class="explore-Buttons">Buy Potion</button>
+    </div>
+
+    <div id="Town_Inn_Panel" class="panel">
+        <h3>Town Inn:</h3>
+            <p id="Town_Inn_Health">HP: 10 / 10</p>
+            <button id = Rest_Button   onclick="Rest()" title="Restore 5 Hp for 25 Copper" class="explore-Buttons">Rest</button>
+    </div>
 
             <!------------------->
           <!---Explore SECTION--->
@@ -105,7 +127,7 @@
 
             <!-- Player Health Bar-->
             <div id="Player_Combat_Panel">
-              <h4 id="Player_Name" class="names"></h4>
+              <h4 id="Player_Name" class="names" title="LVL: 0 EXP: 0/8 "></h4>
               <div id="Health_Panel" class="health-panel">
                 <p id="Player_HP_Text" class="hp-text">HP: 10 / 10</p>
                 <div id= "Player_Health_Bar" class="health-bar"></div>
@@ -124,9 +146,11 @@
 
 
             <div id="Explore_Panel_Buttons">
-            <button id="Find_Enemy_Button" onclick="Search()" class="explore-Buttons">Search</button>
+            <button id="Search_Button" onclick="Search()"     class="explore-Buttons">Search</button>
+
             <button id="Attack_Button" onclick="Attack()"     class="explore-Buttons">Attack</button>
-            <button id="Run_Button"  onclick="Run()"        class="explore-Buttons">Run</button>
+            <button id="Potion_Button" onclick="Potion()"     class="explore-Buttons">Potion</button>
+            <button id="Run_Button"    onclick="Run()"          class="explore-Buttons">Run</button>
             </div>
 
             <p id="Combat_Message"></p>
@@ -141,6 +165,8 @@
       <button id=Take_Button          onclick="Take();"             class="option-Buttons">Take</button>
       <button id=Heal_Button          onclick="Heal_Player();"      class="option-Buttons">Heal</button>
       <button id=Hurt_Button          onclick="Damage_Player();"    class="option-Buttons">Hurt</button>
+      <button id=No_CoolDown_Button   onclick="No_CoolDown();"      class="option-Buttons">No Cooldowns</button>
+      <button id=Force_Level_Button   onclick="Force_Level();"      class="option-Buttons">Level up</button>
     </div>
 
 
@@ -148,12 +174,13 @@
 <!-- Javascript import section -->
     <script src="JavaScript/Items.js"           charset="utf-8"></script>
     <script src="JavaScript/Enemies.js"         charset="utf-8"></script>
+    <script src="JavaScript/Armory.js"         charset="utf-8"></script>
     <script src="JavaScript/Combat.js"          charset="utf-8"></script>
     <script src="JavaScript/Intro.js"           charset="utf-8"></script>
     <script src="JavaScript/Option_Buttons.js"  charset="utf-8"></script>
     <script src="JavaScript/Inventory.js"       charset="utf-8"></script>
-    <script src="JavaScript/Store.js"           charset="utf-8"></script>
     <script src="JavaScript/Player.js"          charset="utf-8"></script>
+    <script src="JavaScript/Town.js"          charset="utf-8"></script>
 
   </body>
 </html>

@@ -42,9 +42,9 @@ header > h1 {
 #Explore_Panel_Buttons{
 position: absolute;
 bottom: 0;
-left: 16px;
+left: 0px;
 height: 64px;
-width: 128px;
+width: 144px;
 }
 
 .explore-Buttons {
@@ -54,7 +54,7 @@ width: 128px;
   box-shadow: 0 4px #888;
   color: white;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   outline: none;
   padding: 4px 6px;
   text-align: center;
@@ -71,15 +71,15 @@ width: 128px;
   color: #fff;
   padding-bottom: 4px;
   text-align: center;
-  display:none;
+  display: none;
 }
 
 #Inventory_Panel {
   position: absolute;
   top: 128px;
-  left: 0px;
+  left: 16px;
   height: auto;
-  width: 144px;
+  width: 128px;
 }
 
 .equipped-items{
@@ -99,7 +99,23 @@ width: 128px;
 }
 
 
-#Store_Panel {
+#Armory_Panel {
+  position: absolute;
+  top: 128px;
+  left: 150px;
+  height: auto;
+  width: 128px;
+}
+
+#Town_Inn_Panel{
+  position: absolute;
+  top: 128px;
+  left: 150px;
+  height: auto;
+  width: 128px;
+}
+
+#Apothecary_Panel{
   position: absolute;
   top: 128px;
   left: 150px;
@@ -121,7 +137,7 @@ width: 128px;
     outline: none;
     padding: 15px 15px}
 
-.store-items{
+.armory-items{
   display: none;
   width: 90%;
   height: 34px;
@@ -129,38 +145,50 @@ width: 128px;
   margin-top: 4px;
   cursor: pointer;
   color: white;
-  } .store-items:hover {opacity: 0.5; background-color: #555555;}
-    .store-items:active{opacity: 1  ; background-color: #000000;}
+  } .armory-items:hover {opacity: 0.5; background-color: #555555;}
+    .armory-items:active{opacity: 1  ; background-color: #000000;}
 
 #Currency_Panel{
-  display:inline-block;
-  margin-top: 16px;
+  display:block;
+  margin-top: 8px;
   font-size: 14px;
   border: 2px solid #444;
   background-color: #555;
   border-radius: 8px;
-  padding: 3px;}
+  padding: 6px;}
 #Dis_Copper {color: #b87333;}
 #Dis_Silver {color: #C0C0C0;}
 #Dis_Gold   {color: #FFD700;}
 
 #Stat_Panel{
-  position: relative;
-  bottom: 8px;
-  display:inline-block;
+  display:block;
+  margin-top: 8px;
   font-size: 14px;
   border: 2px solid #444;
   background-color: #555;
   border-radius: 8px;
-  padding: 3px;}
+  padding: 3px;
+}
 #Dis_Player_ATK{color: white;}
 #Dis_Player_DEF{color: white;}
+
+#Potion_Panel {
+  position: relative;
+  display:block;
+  margin-top: 8px;
+  font-size: 14px;
+  border: 2px solid #444;
+  background-color: #555;
+  border-radius: 8px;
+  width: 74px;
+  left: 23px;
+}
 
 #Explore_Panel{
   display: none;
   position: absolute;
   top: 128px;
-  left: 260px;
+  left: 150px;
   height: 150px;
   width: 350px;
 }
@@ -213,10 +241,15 @@ width: 128px;
   color: white;
   z-index: 1;
 }
-#Find_Enemy_Button{
+#Search_Button{
   position: relative;
   top: 8px
 }
+#Potion_Button{
+  position: relative;
+  top:32px;
+  left: 0px;
+  display: none; }
 #Attack_Button{
   position: relative;
   top:32px;
@@ -246,3 +279,5 @@ width: 128px;
   text-align: center;
   cursor: help;
 }
+#Town_Panel{display: none;}
+.town-Buttons{display: inline-block;}
