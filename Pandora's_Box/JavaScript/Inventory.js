@@ -58,7 +58,7 @@ setInterval(function() {Currency_Conversion()}, 1);
 ////////////////
 
 
-function Equip_Armor_Store(Equip) {
+function Equip_Armor_Armory(Equip) {
     equipped_armor_array[last_armor_equipped] = 0;
     last_armor_equipped = Equip.Slot;
     equipped_armor_array[Equip.Slot] = 1;
@@ -69,7 +69,7 @@ function Equip_Armor_Store(Equip) {
     Player_Update()
 
   }
-function Equip_Weapon_Store(Equip) {
+function Equip_Weapon_Armory(Equip) {
     equipped_weapon_array[last_weapon_equipped] = 0;
     last_weapon_equipped = Equip.Slot;
     equipped_weapon_array[Equip.Slot] = 1;
