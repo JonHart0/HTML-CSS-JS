@@ -4,185 +4,202 @@
 
 
 function Search() {
-  if (timeroff == false) {CoolDown(Search_Button,3)}
+  if (debug_timer == false) {CoolDown(Search_Button,1)}
+
   encounter_index = Encounters();
+
   switch (encounter_index){
     case '0':
-    console.log("TEST")
-    enemy = Weighted_Zone_Spawn(zone_one_enemies);
-    Enemy_Found(enemy)
+        enemy = Weighted_Zone_Spawn(zone_one_enemies);
+        Enemy_Found(enemy)
       break;
 
     case '1':
-    found_reward = Math.floor(Math.random()*20)
-    copper += found_reward;
-    Combat_Message.innerHTML = `Found ${found_reward} Copper!`
-    window.setTimeout(function(){Combat_Message.innerHTML = ''}, 2000);
+        found_reward = Math.floor(Math.random()*20)
+        copper += found_reward;
+        Combat_Message.innerHTML = `Found ${found_reward} Copper!`
+        window.setTimeout(function(){Combat_Message.innerHTML = ''}, 2000);
       break;
 
     case '2':
-    Combat_Message.innerHTML = "Nothing Found"
-    window.setTimeout(function(){Combat_Message.innerHTML = ''}, 2000);
+        Combat_Message.innerHTML = "Nothing Found"
+        window.setTimeout(function(){Combat_Message.innerHTML = ''}, 2000);
+      break;
+
+    case '3':
+        Enemy_Found(enemy)
       break;
   }
+
 }
 
 function Encounters() {
-  //0: Enemy, 1:Money, 2:Nothing
-  var search_encounters = {0: 0.5, 1: 0.1, 2: 0.4}
-  let i = 0, prob=0, random=Math.random();
-  for (i in search_encounters) {
-   prob += search_encounters[i];
-   if (random <= prob) {return i; }
+
+  if (player.Zone_cnt < 10) {
+      var search_encounters = {0: 0.7, 1: 0.1, 2: 0.2} //0: Enemy, 1:Money, 2:Nothing
+      let i = 0, prob=0, random=Math.random();
+      for (i in search_encounters) {
+           prob += search_encounters[i];
+           if (random <= prob) {return i; }
+    }
   }
+
+  if (player.Zone_cnt == 10) {
+    enemy = kobold_Enemy;
+    return "3";
+  }
+
+  if (player.Zone_cnt > 10 && player.Zone_cnt < 15) {
+
+    fly_Enemy.Spawn_Rate = 0;
+    rat_Enemy.spawn_rate = 0.6;
+    rabbit_Enemy.Spawn_Rate =0.4;
+
+      var search_encounters = {0: 0.7, 1: 0.1, 2: 0.2} //0: Enemy, 1:Money, 2:Nothing
+      let i = 0, prob=0, random=Math.random();
+      for (i in search_encounters) {
+           prob += search_encounters[i];
+           if (random <= prob) {return i; }
+    }
+  }
+
+  if (player.Zone_cnt >= 15) {
+    Combat_Message.innerHTML = "Please stop, you've killed everything already"
+    return 2;
+  }
+
 }
+
+
 
 //Checks the probability of the first array element and compares it to the random number generated.
 //if that random number is lessthan or equal to that probability, return the corresponding array selectedIndex
 //continue through array until random number is lessthan or equal to (probabilty sums to 1 which is upper limit of Math.random())
 function Weighted_Zone_Spawn(zone) {
   let i, spawn_rate = [];
-  for (i in zone){
-    spawn_rate[i] = zone[i].Spawn_Rate
+  let j, total_prob = 0, random = Math.random();
+    for (i in zone){
+         spawn_rate[i] = zone[i].Spawn_Rate
   }
-  let j, total_prob=0, random=Math.random();
-  for (j in spawn_rate) {
-    total_prob += spawn_rate[j];
-    if (random <= total_prob) return zone[j];
+    for (j in spawn_rate) {
+         total_prob += spawn_rate[j];
+         if (random <= total_prob) return zone[j];
   }
 }
 
-/////////////////////////
-////Fighting Enemies////
 ///////////////////////
+////Combat Actions////
+/////////////////////
 
-function Enemy_ATK() {
-  if ((current_Enemy.ATK - player.DEF) <= 0) {player.HP -= 0}
-  else {player.HP -= (current_Enemy.ATK - player.DEF);}
-}
-
-function Player_ATK() {
-  if ((player.ATK - current_Enemy.DEF) <= 0) {current_Enemy.HP -= 0}
-  else {current_Enemy.HP -= (player.ATK - current_Enemy.DEF);}
-}
-
-//If target has more than 0 HP subtract HP from enemy and update visuals
-//If target has 0 or less HP reveal search button and update attack visual
+//If the current enemy is not dead, both player and enemy will Attack
+//If the current enemy has no health combat ends and player is rewarded
+//If the debug_timer is not enabled, attack action will go on cooldown
 function Attack() {
   if (current_Enemy.HP > 0) {
-    Player_ATK()
-    Enemy_ATK()
-    Enemy_Health_Bar.style.display = "block";
-    Enemy_Health_Bar.style.width = ((current_Enemy.HP / current_Enemy.Max_HP) *100) + "%";
-    Enemy_HP_Text.innerHTML = `HP: ${current_Enemy.HP} / ${current_Enemy.Max_HP}`
-
-    Player_Update() }
+     Player_ATK(); Enemy_ATK();
+     Enemy_Health_Bar.style.width = ((current_Enemy.HP / current_Enemy.Max_HP) *100) + "%";
+     Enemy_HP_Text.innerHTML = `HP: ${current_Enemy.HP} / ${current_Enemy.Max_HP}`
+     Player_Update()
+  }
 
   if (current_Enemy.HP <= 0) {
-    Enemy_Dead()
-    Enemy_Reward(enemy)
+    Enemy_Dead();
+    Enemy_Reward(enemy);
   }
-  if (timeroff == false) {CoolDown(Attack_Button,1)};
+
+  if (debug_timer == false) {CoolDown(Attack_Button,1)};
 }
 
-function Enemy_Found(enemy) {
-  player.InCombat = true;
-  Explore_Button.style.display = "none"
-  current_Enemy = Object.assign({}, enemy)
-
-  Attack_Button.style.display = "inline-block";
-  Run_Button.style.display = "inline-block";
-  Potion_Button.style.display = "inline-block";
-
-  Enemy_Name.innerHTML = current_Enemy.Name;
-  Enemy_Name.style.display = "block";
-
-  Enemy_Health_Panel.style.display = "block";
-  Enemy_Health_Bar.style.width = 100 + "%";
-  Enemy_Health_Bar.style.display = "block";
-
-  Run_Button.title = `${(current_Enemy.Esc_Rate)*100}%`
-
-  Enemy_HP_Text.innerHTML = `HP: ${current_Enemy.HP} / ${current_Enemy.Max_HP}`
-  Search_Button.style.display = "none";
-  Enemy_Name.title = current_Enemy.Description; //Change the hover text on the name of the enemy
-}
-
-function Enemy_Dead() {
-  Enemy_HP_Text.innerHTML = "Dead"
-  Combat_Message.innerHTML = "Target Dead"
-  Enemy_Name.style.display = "none"; //Hides the Enemies name plate
-  Enemy_Health_Bar.style.display = "none"; //Hides the enemies health bar
-
-  Attack_Button.style.display = "none";
-  Run_Button.style.display = "none";
-  Potion_Button.style.display = "none";
-  Explore_Button.style.display = "inline-block"
-
-  player.InCombat = false;
-  Search_Button.style.display = "inline-block"
-  window.setTimeout(function(){Combat_Message.innerHTML = ''; Enemy_Health_Panel.style.display = "none";}, 1000);
-}
-
-
-function Enemy_Reward(enemy) {
-  player.EXP += current_Enemy.EXP;
-  Player_Level_Check()
-  switch (enemy.Reward_Type) {
-    case "Copper":
-      copper += enemy.Reward_Amount;
-      break;
-    case "Silver":
-      silver += enemy.Reward_Amount;
-      break;
-    case "Gold":
-      gold += enemy.Reward_Amount;
-      break;
+//If the Enemy has higher attack than the player's defense, then the play will take the difference in damage
+//if the player failes to escape, they take the full damage value of the enemy's attack
+function Enemy_ATK(run_attempt = false)  {
+  if (run_attempt == true) {
+    player.HP -= current_Enemy.ATK
+    return
   }
+
+  if ((current_Enemy.ATK - player.DEF) <= 0) {
+    player.HP -= 0
+
+} else {
+  player.HP -= (current_Enemy.ATK - player.DEF);
+  }
+
 }
 
+//If the player has higher attack than the enemy's defense, tehn the enemy will take the differenece in damage
+//If the enemy failes to escape, they take the full damage value of the player's attack
+function Player_ATK(run_attempt = false) {
+  if (run_attempt == true) {
+    current_Enemy.HP -= player.ATK
+    return
+  }
+  if ((player.ATK - current_Enemy.DEF) <= 0) {
+    current_Enemy.HP -= 0
 
+} else {
+  current_Enemy.HP -= (player.ATK - current_Enemy.DEF);
+  }
+
+}
+
+//If the randomly generated number is less than the enemy's escape change, the enemy is considered dead, but no reward is generated
+//If not, the player will be hit by the full force of the enemy
 function Run() {
-  esc_random = Math.random()
-  if (esc_random <= current_Enemy.Esc_Rate) {
-    Enemy_Dead()
-    Enemy_HP_Text.innerHTML = "Escaped"
-    Combat_Message.innerHTML = "You got away!"
-  } else {
-    Enemy_ATK()
-    Player_Update()
-    if (timeroff == false) {CoolDown(Run_Button,2)};
+  esc = Math.random()
+  if (esc <= current_Enemy.Esc_Rate) {
+      Enemy_Dead()
+      Enemy_HP_Text.innerHTML = "Escaped"
+      Combat_Message.innerHTML = "You got away!"
+} else {
+      Enemy_ATK(true)
+      Player_Update()
+
+  if (debug_timer == false) {CoolDown(Run_Button,2)};
+  }
+
+}
+
+//If the player has discovered the potion, has a potion, and has less than max health, heals player
+function Potion() {
+  if (player.Potions > 0 && player.HP < player.Max_HP) {
+      player.Potions -= 1;
+      player.HP += 5;
+      Player_Update()
   }
 }
 
 
+////////////////////////
+////Action Cooldown////
+//////////////////////
 
+//Change this to disable all cooldown timers (Toggle in debug menu)
+debug_timer = true;
 
-////timer////
-timeroff = false;
-
+//Disables the button use for the input amount of time, and changes the button name to match the countdown
+//Renames the button based on input button after the timer reaches 0
+//Self calling function until the timer reaches 0
 function CoolDown(Button,cooldown_time,test = true) {
   Button.disabled = true;
+    if (cooldown_time < 10) {Button.innerHTML = "0" + cooldown_time;}
+    else {Button.innerHTML = cooldown_time;}
 
-  if (cooldown_time < 10) {
-    Button.innerHTML = "0" + cooldown_time;
-  } else {
-    Button.innerHTML = cooldown_time;
-  }
-  if (cooldown_time <= 0) {
+    if (cooldown_time <= 0) {
     Button.disabled = false;
+
     switch (Button) {
-      case Search_Button:
-        Button.innerHTML = "Search"
-        break;
-      case Attack_Button:
-        Button.innerHTML = "Attack"
-        break;
+          case Search_Button:
+            Button.innerHTML = "Search"
+            break;
 
-      case Run_Button:
-        Button.innerHTML = "Run"
-        break;
+          case Attack_Button:
+            Button.innerHTML = "Attack"
+            break;
 
+          case Run_Button:
+            Button.innerHTML = "Run"
+            break;
     }
     return;
   }
@@ -190,12 +207,11 @@ function CoolDown(Button,cooldown_time,test = true) {
   setTimeout(function(){ CoolDown(Button,cooldown_time,false) }, 1000);
 }
 
-function Potion() {
 
-  if (player.Potions > 0 && player.HP < player.Max_HP) {
-    player.Potions -= 1;
-    player.HP += 5;
-    Player_Update()
+//Checks if the player is in combat and makes sure that the health bar is displayed
+setInterval(function() {
+  if (player.InCombat == true){
+    Enemy_Health_Panel.style.display = "block"
+    Enemy_Name.style.display = "block"
   }
-
-}
+}, 10);
