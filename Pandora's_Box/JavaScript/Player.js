@@ -4,17 +4,12 @@
 
 //####NEED TO FIX, Make current values initialize from base values####////
 var player = {
-  Max_HP: 10,
-   Base_HP_Regen: 1,
-    Base_ATK: 1,
-     Base_DEF:1,
-      HP: 10, ATK: 1, DEF: 1,
-       InCombat: false,
-        EXP: 0, LVL: 0,
-          Has_Potion: true,
-            Potion_LVL: 0,
-              Potions: 0,
-                Max_Potions: 1,
+  Max_HP: 10, Base_HP_Regen: 1, Base_ATK: 1, Base_DEF:1,
+  HP: 10, ATK: 1, DEF: 1,
+  InCombat: false,
+  EXP: 0, LVL: 0,
+  Has_Potion: false, Potion_LVL: 0, Potions: 0, Max_Potions: 3,
+  Zone_cnt: 0,
       }
 
 
@@ -50,8 +45,6 @@ function Player_Update() {
   Player_Health_Bar.style.width = ((player.HP / player.Max_HP) *100) + "%";
   Player_HP_Text.innerHTML = `HP: ${player.HP} / ${player.Max_HP}`
   Town_Inn_Health.innerHTML = `HP: ${player.HP} / ${player.Max_HP}`
-
-  Number_Potion.innerHTML = `Potions: ${player.Potions}`
 }
 
 function Player_Regen() {
@@ -79,20 +72,28 @@ function Player_Level_Check() {
 
         break;
         case 1:
-
+        player.Base_ATK  = 2;
+        player.Base_DEF  = 2;
         break;
+
         case 2:
           player.Base_HP_Regen = 2;
         break;
-        case 3:
 
+        case 3:
+        player.Base_ATK  = 3;
+        player.Base_DEF  = 3;
         break;
+
         case 4:
           player.Base_HP_Regen = 3;
         break;
-        case 5:
 
+        case 5:
+        player.Base_ATK  = 4;
+        player.Base_DEF  = 4;
         break;
+
         case 6:
           player.Base_HP_Regen = 4;
         break;
@@ -102,8 +103,6 @@ function Player_Level_Check() {
 
 function Player_Level_Up() {
   player.Max_HP  += 5;
-  player.Base_ATK  += 1;
-  player.Base_DEF  += 1;
   player.HP = player.Max_HP
   Player_Health_Bar.style.backgroundColor = "gold"
   window.setTimeout(function(){Player_Health_Bar.style.backgroundColor = "#CC0000"}, 1000)
