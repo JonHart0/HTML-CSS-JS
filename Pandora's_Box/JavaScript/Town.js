@@ -9,6 +9,7 @@ function Rest() {
 
 function Buy_Potion() {
   if (total_copper >= 50 && player.Potions < player.Max_Potions) {
+    Apothecary_Text.style.display ="none";
     Spend_Currency(50)
     player.Potions += 1
     Player_Update()

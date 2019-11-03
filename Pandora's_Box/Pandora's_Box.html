@@ -40,7 +40,7 @@
 
     <div id = Inventory_Panel class="panel">
 
-        <h3 class="Panel-Header">Inventory:</h3>
+        <h3 class="panel-header">Inventory:</h3>
 
             <div id="Weapons" class="weapons">
 
@@ -92,7 +92,7 @@
     <!------------------->
 
     <div id = Armory_Panel class="panel">
-        <h3 class="Panel-Header">Armory:</h3>
+        <h3 class="panel-header">Armory:</h3>
 
         <!--Weapon Buttons in Store-->
             <button id = Purchase_Stick_Sword_Button    onclick="Purchase_Item_Weapon(stick_sword_Item)"    class="armory-items">Just A Stick</button>
@@ -106,14 +106,23 @@
             <button id = Purchase_Copper_Chest_Button   onclick="Purchase_Item_Armor(copper_chest_Item)"    class="armory-items">Copper Chest</button>
     </div>
 
-
     <div id="Apothecary_Panel" class="panel">
-        <h3>Apothecary:</h3>
-            <button id = Buy_Potion_Button   onclick="Buy_Potion()" title="1 Potion [50 copper]" class="explore-Buttons">Buy Potion</button>
+
+      <div id="Apothecary_Panel_Store" class="panel show">
+          <h3 class="panel-header">Apothecary:</h3>
+          <button id = Buy_Potion_Button   onclick="Buy_Potion()" title="1 Potion [50 copper]" class="explore-Buttons">Buy Potion</button>
+      </div>
+
+      <p id="Apothecary_Text">Adventurer, please help, a nasty Kobold has taken my alchemical set! <br />
+         Without it, I am unable to make any of my potions <br />
+         (Kobolds are crafty little creatures, it may take you some time to find)
+      </p>
+
     </div>
 
+
     <div id="Town_Inn_Panel" class="panel">
-        <h3>Town Inn:</h3>
+        <h3 class="panel-header">Town Inn:</h3>
             <p id="Town_Inn_Health">HP: 10 / 10</p>
             <button id = Rest_Button   onclick="Rest()" title="Restore 5 Hp for 25 Copper" class="explore-Buttons">Rest</button>
     </div>
@@ -150,7 +159,7 @@
 
             <button id="Attack_Button" onclick="Attack()"     class="explore-Buttons">Attack</button>
             <button id="Potion_Button" onclick="Potion()"     class="explore-Buttons">Potion</button>
-            <button id="Run_Button"    onclick="Run()"          class="explore-Buttons">Run</button>
+            <button id="Run_Button"    onclick="Run()"        class="explore-Buttons">Run</button>
             </div>
 
             <p id="Combat_Message"></p>
