@@ -15,7 +15,6 @@ function Inventory() {
 
 
 function Explore() {
-  console.log(Inventory_Panel.style.display)
     if (Explore_Panel.style.display =="none" && Town_Panel.style.display == "none") {
         Explore_Panel.style.display = "block";
         Town_Button.style.display ="none";
@@ -72,6 +71,7 @@ function Apothecary() {
   } else {
         Leave_Place("Apothecary")
   }
+  if (player.Has_Potion == true) {Buy_Potion_Button.style.display = "inline-block"}
 }
 
 
@@ -172,8 +172,8 @@ function Damage_Player() {
 }
 
 function No_CoolDown() {
-  if (timeroff == false) {timeroff = true}
-  else {timeroff = false}
+  if (debug_timer == false) {debug_timer = true}
+  else {debug_timer = false}
 }
 
 function Force_Level() {
