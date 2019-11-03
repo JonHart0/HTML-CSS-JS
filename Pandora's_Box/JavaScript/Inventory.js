@@ -29,7 +29,7 @@ setInterval(function() {
         Dis_Copper.innerHTML = `Copper: ${copper}`;
         Dis_Silver.innerHTML = `Silver: ${silver}`;
         Dis_Gold.innerHTML = `Gold:   ${gold}`;
-
+        Number_Potion.innerHTML = `Potions: ${player.Potions}`;
     },100);
 
 
